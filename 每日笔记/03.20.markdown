@@ -1,0 +1,35 @@
+#### 创建组件的方法
+ - 函数式组件
+ - 类组件 继承React.Component
+ - Hooks组件，就是hooks+函数是组件
+#### 生命周期
+ - constructor
+ - componentWillMount
+ - componentDidMount
+ - render
+
+ - componentWillReceiveProps
+ - shouldComponentUpdate
+ - componentWillUpdate
+ - componentDidUpdate
+
+ - componentWillUnmount
+
+ ##### 新增的两个生命周期
+  - getSnapshotBeforeUpdate
+  - getDerivedStateFromProps
+
+### 事件绑定
+ - 合成事件
+ - 事件绑定this
+    
+    - 比较优先的事件绑定方式
+
+        - 在constructor里bind
+        - 对象字面量函数
+     - 有两种方法会导致不必要的重新渲染分别是：
+         
+         - 在render里bind
+         - 箭头函数
+   
+    
