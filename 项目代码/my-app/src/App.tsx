@@ -12,7 +12,7 @@ interface ItemType {
 }
 interface StateType{
   list: ItemType[],
-  totalPrice: number,
+  totalPrice: number,    
   totalNum: number
 }
 class App extends React.Component<{}, StateType>{
