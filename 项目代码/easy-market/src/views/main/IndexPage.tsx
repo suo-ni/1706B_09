@@ -11,6 +11,29 @@ interface StateType {
     banner: Array<{
         image_url: string,
         [name: string]: string | number
+    }>,
+    channel: Array<{
+        icon_url: string,
+        [name: string]: string | number
+    }>,
+    newGoodsList: Array<{
+        list_pic_url: string,
+        [name: string]: string | number
+    }>,
+    hotGoodsList: Array<{
+        list_pic_url: string,
+        [name: string]: string | number
+    }>,
+    brandList: Array<{
+        new_pic_url: string,
+        [name: string]: string | number
+    }>,
+    topicList: Array<{
+        item_pic_url: string,
+        [name: string]: string | number
+    }>,
+    categoryList: Array<{
+        [name: string]: string | number
     }>
 }
 interface DispatchType{
@@ -29,9 +52,9 @@ let TopicDetailPage: React.FC<StateType & DispatchType & RouteComponentProps> = 
             <div className="swiper-wrapper">
                     {
                         props.banner&&props.banner.map(item => {
-                            // <div key={item.id} className="swiper-slide">
-                            //     <img src={item.image_url} alt=""/>
-                            // </div>
+                            return <div key={item.id} className="swiper-slide">
+                            <img src={item.image_url} alt=""/>
+                        </div>
                         })
                     }
 
@@ -47,19 +70,29 @@ let TopicDetailPage: React.FC<StateType & DispatchType & RouteComponentProps> = 
                 </div> */}
             </div>
         </div>
+        <div className="channelWrap">
+            {
+                props.channel.map(item => (
+                    <a key={item.id} href="">
+                        <img src={item.icon_url} />
+                        <div>{item.name}</div>
+                    </a>
+                ))
+            }
+            </div>
     </>
 }
 
 const mapStateToProps = (state: any) => {
-    return {}
+    return state.home
 }
 
 const mapDispatchToProps = (dispatch: Function)=> {
     return {
-        // getBanner: () => {
-        //     dispatch(bannerAction())
-        // }
+        getBanner: () => {
+            dispatch(bannerAction())
+        }
     }
 }
 
-export default connect(mapDispatchToProps, mapStateToProps)(TopicDetailPage);
+export default connect(mapStateToProps,mapDispatchToProps)(TopicDetailPage);
