@@ -1,0 +1,246 @@
+*{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+html,body,#root{
+  width: 100%;
+  height: 100%;
+}
+#root{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.main{
+  flex: 1;
+  overflow: auto;
+  background: #f1f1f1;
+  //轮播图
+  .swiper-container{
+    width: 100%;
+    height: 4rem;
+    img{
+      width: 100%;
+      height: 100%;
+    }
+    .swiper-pagination{
+      margin-top: 1rem;
+    }
+  }
+
+  //tab
+  .channelWrap{
+    width: 100%;
+    height: 1.4rem;
+    padding: .1rem 0;
+    margin-top: .05rem;
+    background: #fff;
+    display: flex;
+    a{
+      width: 20%;
+      height: 100%;
+      color: #000;
+      font-size: .24rem;
+      text-align: center;
+    }
+    img{
+      height: 80%;
+      display: block;
+      padding: .2rem;
+      margin: auto;
+    }
+  }
+.brandBox, .newGoodsBox, .hotGoodsBox, .topGoodsBox{
+  margin-top: .2rem;
+  background: #fff;
+}
+  .brandBox{
+    .brandBox,.brandItem{
+      width: 50%;
+      height: 2.2rem;
+      position: relative;
+    }
+    .brandWrap{
+      .brandItemName{
+        position: absolute;
+        top: .2rem;
+        left: .2rem;
+        font-size: .3rem;
+      }
+      .brandItemMinPrice{
+        position: absolute;
+        top: .6rem;
+        left: .2rem;
+        font-size: .24rem;
+        color: #a9a9a9;
+      }
+      img{
+        width: 100%;
+        height: 100%;
+        max-height: 4rem;
+      }
+    }
+  }
+}
+
+.brandTitle, .newGoodsTitle, .hotGoodsTitle, .topGoodsTitle{
+  height: 1rem;
+  background: #fff;
+  text-align: center;
+  font-size: .3rem;
+  line-height: 1rem;
+  letter-spacing: .02rem;
+  font-weight: 700;
+}
+.brandWrap, .newGoodsWrap{
+    background: #fff;
+    display: flex;
+    flex-wrap: wrap;
+  }
+.newGoodsBox {
+  .newGoodsItem{
+    width: 50%;
+    height: 4rem;
+    img{
+      height: 70%;
+      width: 100%;
+    }
+    .newGoodsName, .newGoodsPrice{
+      height: 12%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: .3rem;
+    }
+    .newGoodsPrice{
+      color: #8b0000;
+    }
+  }
+}
+.hotGoodsBox{
+  .hotGoodsWrap{
+    width: 100%;
+    padding: 0 .2rem;
+    min-height: 200px;
+    .hotGoodsItem>div>div{
+      height: 33.3333%;
+      display: flex;
+      align-items: center;
+    }
+    .hotGoodsItem{
+      height: 3rem;
+      position: relative;
+      padding: .1rem 0;
+      display: flex;
+      img{
+        width: auto;
+        height: 100%;
+      }
+      .hotGoodsInfos{
+        flex: 1;
+        padding: .5rem 0;
+        .hotGoodsName{
+          font-size: .32rem;
+        }
+        .hotGoodsInfo{
+          color: #a9a9a9;
+          font-size: .28rem;
+        }
+        .hotGoodsPrice{
+          color: #8b0000;
+          font-size: .3rem;
+        }
+      }
+    }
+  }
+}
+
+.topGoodsBox{
+  .topGoodsWrap{
+    height: auto;
+    padding-bottom: .2rem;
+    .slider{
+      position: relative;
+      display: block;
+      width: 100%;
+      height: auto;
+      visibility: visible;
+      .slider-fram{
+        position: relative;
+        display: block;
+        overflow: hidden;
+        height: auto;
+        margin: 0px;
+        padding: 0px;
+        transform: translate3d(0px, 0px, 0px);
+        .slider-list{
+          transform: translate3d(28.125px, 0px, 0px);
+          position: relative;
+          display: block;
+          margin: 0px -5px;
+          padding: 0px;
+          height: 252px;
+          width: 986.25px;
+          cursor: inherit;
+          .slider-slide{
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            display: inline-block;
+            list-style-type: none;
+            vertical-align: top;
+            width: 318.75px;
+            height: auto;
+            margin: auto 5px;
+            .topGoodsItem{
+              height: 5rem;
+              img{
+                height: 4rem;
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.topGoodTitle {
+  font-size: .24rem;
+  color: grey;
+}
+.topGoodSubTitle {
+  font-size: .32rem;
+}
+.topGoodPrice {
+  color: #8b0000;
+}
+.topGoodSubTitle, .topGoodTitle {
+  margin-top: .1rem;
+  height: .4rem;
+  line-height: .4rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.footer{
+  height: 1rem;    
+  line-height: 0.5rem;
+  display: flex;
+  a{
+    flex: 1;
+    color: #000;
+    font-size: .24rem;
+    line-height: .4rem;
+    text-align: center;
+  }
+  .active{
+    color: blue !important;
+  }
+}

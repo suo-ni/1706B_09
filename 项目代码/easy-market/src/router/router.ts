@@ -1,4 +1,3 @@
-import React from 'react';
 import {PropType} from '../utils/interface'
 
 // 引入一级路由
