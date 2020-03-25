@@ -18,4 +18,4 @@ let MainPage: React.FC<PropType> = props=>{
     </>
 }
 
-export default MainPage;
+export default MainPage;     
