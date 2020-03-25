@@ -38,6 +38,7 @@ let TopicDetailPage: React.FC<StateType & DispatchType & RouteComponentProps> = 
 
     useEffect(() => {
         props.getBanner();
+        
         new Swiper('.swiper-container', {
             autoplay: true,
             loop: true,
@@ -46,7 +47,7 @@ let TopicDetailPage: React.FC<StateType & DispatchType & RouteComponentProps> = 
             },
         })
     }, []);
-
+    
     return <>
         <div className="swiper-container">
             <div className="swiper-wrapper">
