@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, { useEffect } from 'react'
 import { PropType, RouterItemType } from '../../utils/interface'
 import 'swiper/css/swiper.css'
 import Swiper from 'swiper'
@@ -36,27 +36,27 @@ interface StateType {
         [name: string]: string | number
     }>
 }
-interface DispatchType{
+interface DispatchType {
     getBanner: Function
 }
 let TopicDetailPage: React.FC<StateType & DispatchType & RouteComponentProps> = props => {
     useEffect(() => {
         props.getBanner()
     }, [])
-    new Swiper('swiper-container', {
+    new Swiper('.swiper-container', {
         autoplay: true,
         loop: true
     })
     return <>
         <div className="swiper-container">
             <div className="swiper-wrapper">
-                    {
-                        props.banner&&props.banner.map(item => {
-                            return <div key={item.id} className="swiper-slide">
-                            <img src={item.image_url} alt=""/>
+                {
+                    props.banner && props.banner.map(item => {
+                        return <div key={item.id} className="swiper-slide">
+                            <img src={item.image_url} alt="" />
                         </div>
-                        })
-                    }
+                    })
+                }
 
 
                 {/* <div className="swiper-slide">
@@ -79,7 +79,7 @@ let TopicDetailPage: React.FC<StateType & DispatchType & RouteComponentProps> = 
                     </a>
                 ))
             }
-            </div>
+        </div>
     </>
 }
 
@@ -87,7 +87,7 @@ const mapStateToProps = (state: any) => {
     return state.home
 }
 
-const mapDispatchToProps = (dispatch: Function)=> {
+const mapDispatchToProps = (dispatch: Function) => {
     return {
         getBanner: () => {
             dispatch(bannerAction())
@@ -95,4 +95,4 @@ const mapDispatchToProps = (dispatch: Function)=> {
     }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(TopicDetailPage);
+export default connect(mapStateToProps, mapDispatchToProps)(TopicDetailPage);

@@ -4,9 +4,11 @@ import { createStore, combineReducers, applyMiddleware } from 'redux'
 import ReduxThunk from "redux-thunk"
 
 import home from './reducers/home'
+import login from './reducers/login'
 
 let reducers = combineReducers({
-    home
+    home,
+    login
 })
 
 
