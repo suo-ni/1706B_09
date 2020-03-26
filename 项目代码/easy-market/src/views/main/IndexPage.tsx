@@ -85,20 +85,20 @@ let TopicDetailPage: React.FC<StateType & DispatchType & RouteComponentProps> = 
                         <div className="brandItem" key={item.id}>
                             <div className="brandItemName">{item.name}</div>
                             <div className="brandItemMinPrice">{item.floor_price}元起</div>
-                            <img src={item.new_pic_url} alt=""/>
+                            <img src={item.new_pic_url} alt="" />
                         </div>
                     ))
                 }
             </div>
         </div>
-        
+
         <div className="newGoodsBox">
             <div className="newGoodsTitle">新品首发</div>
             <div className="newGoodsWrap">
                 {
                     props.newGoodsList.map(item => (
                         <div className="newGoodsItem" key={item.id}>
-                            <img src={item.list_pic_url} alt=""/>
+                            <img src={item.list_pic_url} alt="" />
                             <div className="newGoodsName">{item.name}</div>
                             <div className="newGoodsPrice">￥{item.retail_price}</div>
                         </div>
@@ -106,14 +106,14 @@ let TopicDetailPage: React.FC<StateType & DispatchType & RouteComponentProps> = 
                 }
             </div>
         </div>
-        
+
         <div className="hotGoodsBox">
             <div className="hotGoodsTitle">人气推荐</div>
             <div className="hotGoodsWrap">
                 {
                     props.hotGoodsList.map(item => (
                         <div className="hotGoodsItem" key={item.id}>
-                            <img src={item.list_pic_url} alt=""/>
+                            <img src={item.list_pic_url} alt="" />
                             <div className="hotGoodsInfos">
                                 <div className="hotGoodsName">{item.name}</div>
                                 <div className="hotGoodsInfo">{item.goods_brief}</div>
@@ -124,7 +124,7 @@ let TopicDetailPage: React.FC<StateType & DispatchType & RouteComponentProps> = 
                 }
             </div>
         </div>
-        
+
         <div className="topGoodsBox">
             <div className="topGoodsTitle">专题精选</div>
             <div className="topGoodsWrap">
@@ -135,7 +135,7 @@ let TopicDetailPage: React.FC<StateType & DispatchType & RouteComponentProps> = 
                                 props.topicList.map(item => (
                                     <li className="slider-slide" key={item.id}>
                                         <div className="topGoodsItem">
-                                            <img src={item.item_pic_url} alt=""/>
+                                            <img src={item.item_pic_url} alt="" />
                                             <div className="topGoodSubTitle">
                                                 {item.title}
                                                 <span className="topGoodPrice">￥{item.price_info}元起</span>
@@ -150,18 +150,13 @@ let TopicDetailPage: React.FC<StateType & DispatchType & RouteComponentProps> = 
                     </div>
                 </div>
             </div>
-            {
-
-            }
-            {
-                console.log(props.topicList)
-            }
         </div>
+
     </>;
 }
 
 const mapStateToProps = (state: any) => {
-    console.log('state.home...', state.home)
+    // console.log('state.home...', state.home)
     return state.home
 }
 const mapDisptachToProps = (dispatch: Function) => {
