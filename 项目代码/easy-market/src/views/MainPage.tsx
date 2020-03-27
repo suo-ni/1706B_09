@@ -8,7 +8,7 @@ let MainPage: React.FC<PropType> = props => {
     
     return <>
         
-        <div>
+        <div className="main_home">
             <RouterView routes={props.routes} />
         </div>
         <footer className="main_footer">
