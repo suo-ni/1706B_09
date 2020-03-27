@@ -14,8 +14,8 @@ interface DispatchType {
 
 let LoginPage: React.FC<StateType & DispatchType & RouteComponentProps> = props => {
 
-    let [mobile, setMobile] = useState<string>('13333567991')
-    let [password, setPassword] = useState<string>('123456')
+    let [mobile, setMobile] = useState<string>('')
+    let [password, setPassword] = useState<string>('')
 
     // 如果用户已经登陆，回到上一个页面
     if (props.isLogin) {
@@ -44,18 +44,18 @@ let LoginPage: React.FC<StateType & DispatchType & RouteComponentProps> = props 
         props.login(mobile, password);
     }
 
-    return <>
-        <input type="text" value={mobile} placeholder="请输入你的手机号码" onChange={changeMobile} /><br/><br/>
-        <input type="password" value={password} placeholder="请输入你的密码" onChange={changePassword} /><br/><br/>
+    return <div className="login">
+        <input type="text" value={mobile} placeholder="请输入你的手机号码" onChange={changeMobile} />
+        <input type="password" value={password} placeholder="请输入你的密码" onChange={changePassword} /><br/>
         <button onClick={login}>登陆</button>
-    </>;
+    </div>;
 
 
 }
 
 const mapStateToProps = (state: any) => {
     return {
-        isLogin: state.login.isLogin
+        isLogin: state.login
     }
 }
 

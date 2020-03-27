@@ -17,6 +17,23 @@ html, body, #root {
   position: relative;
 }
 
+.login input {
+  border: 1px solid #000;
+}
+
+.login input, .login button {
+  height: .8rem;
+  width: 80%;
+  margin-left: .8rem;
+}
+
+.login button {
+  background: blue;
+  border: none;
+  color: #fff;
+  font-size: .3rem;
+}
+
 .main {
   flex: 1;
   overflow: auto;

@@ -12,7 +12,7 @@ interface StateType {
     }>,
     channel: Array<{
         icon_url: string,
-        [name: string]: string | number
+        [name: string]: string | number   
     }>,
     newGoodsList: Array<{
         list_pic_url: string,
@@ -53,6 +53,7 @@ let TopicDetailPage: React.FC<StateType & DispatchType & RouteComponentProps> = 
     }, []);
 
     return <>
+    
         <div className="swiper-container">
             <div className="swiper-wrapper">
                 {
@@ -156,7 +157,6 @@ let TopicDetailPage: React.FC<StateType & DispatchType & RouteComponentProps> = 
 }
 
 const mapStateToProps = (state: any) => {
-    // console.log('state.home...', state.home)
     return state.home
 }
 const mapDisptachToProps = (dispatch: Function) => {

@@ -17,4 +17,4 @@ function homeReudcer(state: any, action: ActionType){
     }
 }
 
-export default (state=initVal, action:ActionType)=>homeReudcer(state, action)
+export default (state=initVal, action:ActionType)=>homeReudcer(state, action)  

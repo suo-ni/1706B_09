@@ -15,6 +15,23 @@ html,body,#root{
   flex-direction: column;
   position: relative;
 }
+.login{
+  input{
+    border: 1px solid #000;
+  }
+  input,button{
+    height: .8rem;
+    width: 80%;
+    margin-left: .8rem;
+  }
+  button{
+    background: blue;
+    border: none;
+    color: #fff;
+    font-size: .3rem;
+  }
+}
+
 .main{
   flex: 1;
   overflow: auto;

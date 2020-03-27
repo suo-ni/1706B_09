@@ -13,7 +13,7 @@ import TopicPage from '../views/main/TopicPage'
 import TypePage from '../views/main/TypePage'
 import MyPage from '../views/main/MyPage'
 
-
+ 
 let config = {
     routes: [{
         path: '/login',

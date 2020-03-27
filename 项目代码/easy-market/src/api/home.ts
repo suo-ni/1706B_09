@@ -7,4 +7,4 @@ let getBanner = ()=>{
 
 export {
     getBanner,
-}
+}  

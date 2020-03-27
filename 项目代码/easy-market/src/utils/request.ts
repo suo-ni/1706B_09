@@ -1,9 +1,9 @@
 import Axios from 'axios';
 
 const axios = Axios.create({
-    baseURL: 'http://easymarket.jasonandjay.com/',
+    baseURL: 'http://127.0.0.1:8888',
     timeout: 5000,
-    headers: {'X-Custom-Header': 'foobar'}
+    headers: {'X-Custom-Header': 'footer'}
 });
 
 axios.interceptors.request.use(function (config) {

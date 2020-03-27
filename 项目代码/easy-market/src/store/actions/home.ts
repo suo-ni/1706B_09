@@ -20,4 +20,4 @@ let commonAction = ()=>{
 export{
     bannerAction,
     commonAction,
-}
+}  

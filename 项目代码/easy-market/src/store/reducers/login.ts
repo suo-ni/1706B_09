@@ -17,4 +17,4 @@ function loginReducer(state: any, action: ActionType){
     }
 }
 
-export default (state=initVal, action:ActionType)=>loginReducer(state, action)
+export default (state=initVal, action:ActionType)=>loginReducer(state, action)  
