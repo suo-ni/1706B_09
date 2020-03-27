@@ -70,47 +70,15 @@ let TopicDetailPage: React.FC<StateType & DispatchType & RouteComponentProps> = 
                 </div> */}
             </div>
         </div>
-        <div className="main_main">
-            <div className="channelWrap">
-                {
-                    props.channel.map(item => (
-                        <a key={item.id} href="">
-                            <img src={item.icon_url} />
-                            <div>{item.name}</div>
-                        </a>
-                    ))
-                }
-            </div>
-
-            <div className="brandBox">
-                <div className="brandTitle">品牌制造商直供</div>
-                <div className="brandWrap">
-                    {
-                        props.brandList && props.brandList.map(item => (
-                            <div className="brandItem" key={item.id}>
-                                <div className="brandItemName">{item.name}</div>
-                                <div className="brandItemMinPrice">{item.floor_price}元起</div>
-                                <img src={item.new_pic_url} alt="" />
-                            </div>
-                        ))
-                    }
-                </div>
-            </div>
-
-            <div className="newGoodsBox">
-                <div className="newGoodsTitle">新品首发</div>
-                <div className="newGoodsWrap">
-                    {
-                        props.newGoodsList.map(item => (
-                            <div className="newGoodsItem" key={item.id}>
-                                <img src={item.list_pic_url} alt="" />
-                                <div className="newGoodsName">{item.name}</div>
-                                <div className="newGoodsPrice">￥{item.retail_price}</div>
-                            </div>
-                        ))
-                    }
-                </div>
-            </div>
+        <div className="channelWrap">
+            {
+                props.channel.map(item => (
+                    <a key={item.id} href="">
+                        <img src={item.icon_url} />
+                        <div>{item.name}</div>
+                    </a>
+                ))
+            }
         </div>
     </>
 }

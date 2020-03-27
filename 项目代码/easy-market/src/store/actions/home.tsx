@@ -1,4 +1,4 @@
-import { getBanner, getChannel } from "../../api";
+import { getBanner, getChannel, getNewGoodsList, getBrandList } from "../../api";
 
 //轮播图
 export let bannerAction = () => {
@@ -20,6 +20,32 @@ export let channelAction = () => {
         if(data) {
             dispatch({
                 type: 'GET_CHANNEL',
+                payload: data
+            })
+        }
+    }
+}
+
+//品牌制造商
+export let newGoodsListAction = () => {
+    return async(dispatch: Function) => {
+        let data = await getNewGoodsList()
+        if(data) {
+            dispatch({
+                type: 'GET_GOODS',
+                payload: data
+            })
+        }
+    }
+}
+
+////新品首发
+export let newBrandListtAction = () => {
+    return async(dispatch: Function) => {
+        let data = await getBrandList()
+        if(data) {
+            dispatch({
+                type: 'GET_GOODS',
                 payload: data
             })
         }

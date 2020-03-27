@@ -1,18 +1,14 @@
 import Axios from 'axios';
 import { Toast } from 'antd-mobile';
-import { getToken } from './index';
 
 const axios = Axios.create({
-    baseURL: 'http://127.0.0.1:8888/',
-    timeout: 3000,
+    baseURL: 'http://easymarket.jasonandjay.com/',
+    timeout: 5000,
     headers: {'X-Custom-Header': 'foobar'}
 });
 
 axios.interceptors.request.use(function (config) {
     // Do something before request is sent
-    // if(getToken()) {
-    //   config.headers[]
-    // }
     return config;
   }, function (error) {
     // Do something with request error

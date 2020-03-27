@@ -15,17 +15,8 @@ interface DispatchType {
 }
 
 let LoginlPage: React.FC<DispatchType & StateType & RouteComponentProps> = props => {
-    let [mobile, setMobile] = useState<string>('')
-    let [password, setPassword] = useState<string>('')
-
-    if (props.isLogin){
-        // let redirect = props.location.search.slice(1).split('=')[1]
-        // props.history.replace(redirect?decodeURIComponent(redirect): '/')
-        // return null;
-        props.history.push('/')
-    }   
-
-
+    let [mobile, setMobile] = useState('')
+    let [password, setPassword] = useState('')
     //用户名
     let changeMobile = (e: React.ChangeEvent<HTMLInputElement>) =>{
         setMobile(e.target.value)
@@ -36,16 +27,14 @@ let LoginlPage: React.FC<DispatchType & StateType & RouteComponentProps> = props
     }
     //登录发送接口
     let login = () => {
-        if(!mobileReg.test(mobile!)) {
+        if(!mobileReg.test(mobile)) {
             Toast.info('用户名格式错误');
-            return
-        } if(!passwordReg.test(password!)) {
+        } else if(!passwordReg.test(password)) {
             Toast.info('密码格式错误')
-            return
         }
         props.getLogin(mobile, password)
         alert('登陆成功')
-        
+        props.history.push('/')
     }
     return <>
         <Input value={mobile} onChange={changeMobile} size="large" placeholder="请输入用户名" />

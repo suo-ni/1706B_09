@@ -9,14 +9,3 @@ export let getBanner = () => {
 export let getChannel = () => {
     return axios.get('/')
 }
-
-//品牌制造商
-
-export let getNewGoodsList = () => {
-    return axios.get('/')
-}
-
-//新品首发
-export let getBrandList = () => {
-    return axios.get('/')
-}

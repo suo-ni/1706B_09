@@ -6,9 +6,9 @@ import RouterView from '../router/RouterView'
 
 let MainPage: React.FC<PropType> = props => {
     
-    return <>
+    return <div className="main_home">
         
-        <div>
+        <div className="main_main">
             <RouterView routes={props.routes} />
         </div>
         <footer className="main_footer">
@@ -18,7 +18,7 @@ let MainPage: React.FC<PropType> = props => {
             <NavLink to="/main/cart">购物车</NavLink>
             <NavLink to="/main/my">我的</NavLink>
         </footer>
-    </>
+    </div>
 }
 
 export default MainPage;
