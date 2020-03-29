@@ -14,11 +14,11 @@ let RouterView: React.FC<PropType> = props=>{
                 }
             }
             return <Route key={item.path} path={item.path} render={renderProps=>{
-                // console.log(renderProps)
-                // let {match: {path}} = renderProps;
-                // if (path !== '/login' && path !== '/main' && !getToken()){
-                //     return <Redirect to={`/login?redirect=${encodeURIComponent(path)}`}/>
-                // }
+                console.log(renderProps)
+                let {match: {path}} = renderProps;
+                if (path !== '/login' && path !== '/main' && !getToken()){
+                    return <Redirect to={`/login?redirect=${encodeURIComponent(path)}`}/>
+                }
                 if (item.children){
                     return <item.component routes={item.children} {...renderProps}/>
                 }else{

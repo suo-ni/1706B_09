@@ -4,7 +4,11 @@ const initval = {
     banner: [],
     channel: [],
     newGoodsList: [],
-    getBrandList: []
+    getBrandList: [],
+    gethotGoodsList: [],
+    gettopicList: [],
+    getcategoryList: [],
+    getgoodsList: []
 }
 
 function homeReducer(state: any, action: ActionType) {
@@ -13,6 +17,14 @@ function homeReducer(state: any, action: ActionType) {
             return {...state, ...action.payload}
         case 'GET_CHANNNEL':
             return {...state, ...action.payload}
+        case 'GET_GOODS':
+            return {...state, ...action.payload}
+        case 'GET_HOTGOODS':
+            return {...state, ...action.payload}
+        case 'GET_TOPIC':
+            return {...state, ...action.payload}
+        case 'GET_CAT':
+            return {...state, ...action.payload}    
         case 'GET_GOODS':
             return {...state, ...action.payload}
         default: return state

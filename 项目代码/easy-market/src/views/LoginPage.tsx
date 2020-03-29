@@ -19,10 +19,10 @@ let LoginlPage: React.FC<DispatchType & StateType & RouteComponentProps> = props
     let [password, setPassword] = useState<string>('')
 
     if (props.isLogin){
-        // let redirect = props.location.search.slice(1).split('=')[1]
-        // props.history.replace(redirect?decodeURIComponent(redirect): '/')
-        // return null;
-        props.history.push('/')
+        let redirect = props.location.search.slice(1).split('=')[1]
+        props.history.replace(redirect?decodeURIComponent(redirect): '/')
+        return null;
+        // props.history.push('/')
     }   
 
 
@@ -44,7 +44,6 @@ let LoginlPage: React.FC<DispatchType & StateType & RouteComponentProps> = props
             return
         }
         props.getLogin(mobile, password)
-        alert('登陆成功')
         
     }
     return <>
