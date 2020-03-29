@@ -192,80 +192,95 @@ html, body, #root {
 }
 
 .topGoodsBox .topGoodsWrap {
-  height: auto;
+  height: 5.24rem;
   padding-bottom: .2rem;
-}
-
-.topGoodsBox .topGoodsWrap .slider {
-  position: relative;
-  display: block;
-  width: 100%;
-  height: auto;
-  visibility: visible;
-}
-
-.topGoodsBox .topGoodsWrap .slider .slider-fram {
-  position: relative;
-  display: block;
   overflow: hidden;
-  height: auto;
-  margin: 0px;
-  padding: 0px;
-  transform: translate3d(0px, 0px, 0px);
 }
 
-.topGoodsBox .topGoodsWrap .slider .slider-fram .slider-list {
-  transform: translate3d(28.125px, 0px, 0px);
-  position: relative;
-  display: block;
-  margin: 0px -5px;
-  padding: 0px;
-  height: 252px;
-  width: 986.25px;
-  cursor: inherit;
-}
-
-.topGoodsBox .topGoodsWrap .slider .slider-fram .slider-list .slider-slide {
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  display: inline-block;
-  list-style-type: none;
-  vertical-align: top;
-  width: 318.75px;
-  height: auto;
-  margin: auto 5px;
-}
-
-.topGoodsBox .topGoodsWrap .slider .slider-fram .slider-list .slider-slide .topGoodsItem {
+.topGoodsBox .topGoodsWrap .topGoodsItem {
   height: 5rem;
 }
 
-.topGoodsBox .topGoodsWrap .slider .slider-fram .slider-list .slider-slide .topGoodsItem img {
+.topGoodsBox .topGoodsWrap .topGoodsItem img {
   height: 4rem;
   width: 100%;
-}
-
-.topGoodTitle {
-  font-size: .24rem;
-  color: grey;
-}
-
-.topGoodSubTitle {
-  font-size: .32rem;
 }
 
 .topGoodPrice {
   color: #8b0000;
 }
 
-.topGoodSubTitle, .topGoodTitle {
+.topGoodTitle {
+  font-size: .24rem;
+  color: grey;
   margin-top: .1rem;
   height: .4rem;
   line-height: .4rem;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.cateGoryBox {
+  height: auto;
+}
+
+.cateGoryBox .cateGoryName {
+  height: 1rem;
+  text-align: center;
+  line-height: 1rem;
+}
+
+.cateGoryBox .cateGoryGoodsWrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cateGoryBox .cateGoryGoodsWrap .div {
+  width: 50%;
+  height: auto;
+  background: #fff;
+  padding: .2rem;
+  position: relative;
+}
+
+.cateGoryBox .cateGoryGoodsWrap .div div:nth-child(odd):after {
+  border: 1px solid #f5f5f9;
+  border-left-width: 2px;
+}
+
+.cateGoryBox .cateGoryGoodsWrap .div .goodsItemImg {
+  min-height: 2rem;
+}
+
+.cateGoryBox .cateGoryGoodsWrap .div .goodsItemImg img {
+  width: 100%;
+  height: auto;
+}
+
+.cateGoryBox .cateGoryGoodsWrap .div .goodsItemName {
+  padding-bottom: .3rem;
+  padding-top: .1rem;
+}
+
+.cateGoryBox .cateGoryGoodsWrap .div .goodsItemName, .cateGoryBox .cateGoryGoodsWrap .div .goodsItemPrice {
+  text-align: center;
+  font-size: .28rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cateGoryBox .cateGoryGoodsWrap .div .goodsItemPrice {
+  color: red;
+}
+
+.cateGoryBox .cateGoryGoodsWrap .div .categoryMoreGoods {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .footer {
@@ -283,5 +298,5 @@ html, body, #root {
 }
 
 .footer .active {
-  color: blue !important;
+  color: #2196f3 !important;
 }

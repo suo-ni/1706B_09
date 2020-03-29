@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { bannerAction } from '../../store/actions/home'
 import { RouteComponentProps } from 'react-router'
+import { Carousel, WingBlank } from 'antd-mobile';
 import Swiper from "swiper"
 import "swiper/css/swiper.min.css"
 
@@ -12,7 +13,7 @@ interface StateType {
     }>,
     channel: Array<{
         icon_url: string,
-        [name: string]: string | number   
+        [name: string]: string | number
     }>,
     newGoodsList: Array<{
         list_pic_url: string,
@@ -31,7 +32,8 @@ interface StateType {
         [name: string]: string | number
     }>,
     categoryList: Array<{
-        [name: string]: string | number
+        [name: string]: string | number,
+        goodsList: string | any,
     }>
 }
 
@@ -53,7 +55,7 @@ let TopicDetailPage: React.FC<StateType & DispatchType & RouteComponentProps> = 
     }, []);
 
     return <>
-    
+
         <div className="swiper-container">
             <div className="swiper-wrapper">
                 {
@@ -70,7 +72,7 @@ let TopicDetailPage: React.FC<StateType & DispatchType & RouteComponentProps> = 
         <div className="channelWrap">
             {
                 props.channel.map(item => (
-                    <a key={item.id} href="">
+                    <a key={item.id}>
                         <img src={item.icon_url} />
                         <div>{item.name}</div>
                     </a>
@@ -129,28 +131,53 @@ let TopicDetailPage: React.FC<StateType & DispatchType & RouteComponentProps> = 
         <div className="topGoodsBox">
             <div className="topGoodsTitle">专题精选</div>
             <div className="topGoodsWrap">
-                <div className="slider">
-                    <div className="slider-fram">
-                        <ul className="slider-list">
-                            {
-                                props.topicList.map(item => (
-                                    <li className="slider-slide" key={item.id}>
-                                        <div className="topGoodsItem">
-                                            <img src={item.item_pic_url} alt="" />
-                                            <div className="topGoodSubTitle">
-                                                {item.title}
-                                                <span className="topGoodPrice">￥{item.price_info}元起</span>
-                                            </div>
-                                            <div className="topGoodTitle">{item.subtitle}</div>
-                                        </div>
+                <WingBlank>
+                    <Carousel className="space-carousel"
+                        frameOverflow="visible"
+                        cellSpacing={10}
+                        slideWidth={0.92}
+                        autoplay
+                        infinite
+                        dots={false}
+                    >
+                        {
+                            props.topicList.map(item => (
+                                <div className="topGoodsItem" key={item.id}>
+                                    <img src={item.item_pic_url} alt="" />
+                                    <div className="topGoodSubTitle">
+                                        {item.title}
+                                        <span className="topGoodPrice">￥{item.price_info}元起</span>
+                                    </div>
+                                    <div className="topGoodTitle">{item.subtitle}</div>
+                                </div>
+                            ))
+                        }
+                    </Carousel>
+                </WingBlank>
+            </div>
+        </div>
 
-                                    </li>
+        <div className='cateGoryBox'>
+            {
+                props.categoryList && props.categoryList.map(item => (
+                    <div key={item.id}>
+                        <div className="cateGoryName">{item.name}</div>
+                        <div className="cateGoryGoodsWrap">
+                            {
+                                item.goodsList && item.goodsList.map((v: any) => (
+                                    <div className="div" key={v.id}>
+                                        <div className='goodsItemImg'>
+                                            <img src={v.list_pic_url} alt="" />
+                                        </div>
+                                        <div className="goodsItemName">{v.name}</div>
+                                        <div className='goodsItemPrice'>{v.retail_price}</div>
+                                    </div>
                                 ))
                             }
-                        </ul>
+                        </div>
                     </div>
-                </div>
-            </div>
+                ))
+            }
         </div>
 
     </>;

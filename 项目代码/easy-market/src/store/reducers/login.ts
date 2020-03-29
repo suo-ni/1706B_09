@@ -1,7 +1,7 @@
 import {ActionType} from '../../utils/interface'
 import {setToken, removeToken} from '../../utils/index'
 const initVal = {
-    isLogin: []
+    isLogin: false
 }
 
 function loginReducer(state: any, action: ActionType){

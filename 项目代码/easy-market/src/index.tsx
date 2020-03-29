@@ -8,6 +8,7 @@ import RouterView from './router/RouterView'
 // 引入redux
 import store from './store'
 import { Provider } from 'react-redux'
+import 'antd-mobile/dist/antd-mobile.css'; 
 
 
 ReactDOM.render(
