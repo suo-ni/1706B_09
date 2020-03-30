@@ -4,34 +4,42 @@ import { RouteComponentProps } from 'react-router'
 import { connect } from 'react-redux'
 import { TopicAction } from '../../store/actions/topic'
 
+interface ItemType {
+    id: number,
+    title: string,
+    price_info: number,
+    subtitle: string,
+    scene_pic_url: string,
+}
+
 interface StateType {
-    topicList: Array<{
-        scene_pic_url: string,
-        [name: string]: string | number
-    }>
+    list: Array<ItemType>,
 }
 
 interface DispatchType {
-    Topic: Function
+    Topic: () => void
 }
 
 let TopiclPage: React.FC<StateType & DispatchType & RouteComponentProps> = props=>{
     useEffect(() => {
         props.Topic()
-    }, [])
+    }, []);
+    let goDetail = (e:React.MouseEvent<HTMLImageElement>) => {
+        let id = e.currentTarget.dataset.id;
+        // props.history.push('/TopicDetailPage?id=' + id)
+        console.log(id)
+    }
     return <>
         <div className="tabPageContent">
-        aaaaaa
             <a className="topicItem" href="#">
                 {
-                    props.topicList && props.topicList.map(item => {
-                        console.log(item)
+                    props.list.map((item) => {
                         return <>
-                            <img className="imgLazyload" src={item.scene_pic_url} alt=""/>
-                            <div className="topicItemTitle"></div>
-                            <div className="topicItemSubtitle"></div>
+                            <img key={item.id} onClick={goDetail} data-id={item.id} className="imgLazyload" src={item.scene_pic_url} alt=""/>
+                            <div className="topicItemTitle">{item.title}</div>
+                            <div className="topicItemSubtitle">{item.subtitle}</div>
                             <div className="topicItemPrice">
-                                元起
+                                {item.price_info}元起
                             </div>
                         </>
                     })
@@ -42,7 +50,7 @@ let TopiclPage: React.FC<StateType & DispatchType & RouteComponentProps> = props
 }
 
 const mapStateToprops = (state: any)  => {
-    return state.topic
+    return {list:state.topic.list}
 }
 
 const mapDispatchToProps = (dispatch: Function) => {

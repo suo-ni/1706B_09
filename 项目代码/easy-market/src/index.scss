@@ -302,7 +302,45 @@ html,body, #root {
     }
   }
 }
-     
+
+
+//专题页面
+.tabPageContent {
+  min-height: 100%;
+  padding-bottom: 1.04rem;
+  .topicItem {
+    height: 5.8rem;
+    margin-top: .2rem;
+    background: #fff;
+    display: block;
+    img {
+      width: 100%;
+      height: 4rem;
+      opacity: 1;
+      // -webkit-transition: all 1s;
+      transition: all 1s;
+    }
+    .topicItemSubtitle, .topicItemTitle {
+      color: #000;
+      text-align: center;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .topicItemSubtitle {
+      color: grey;
+    }
+    .topicItemPrice {
+      padding: .1rem .1rem .2rem;
+      font-size: .28rem;
+      text-align: center;
+      color: red;
+      line-height: .4rem;
+      height: .7rem;
+  }
+  }
+}
+
 .main_main {
       flex: 1;
       overflow: auto;
@@ -311,9 +349,11 @@ html,body, #root {
   // position: fixed;
     width: 100%;
     height: 1rem;
-    background: red;
     font-size: .24rem;
     line-height: .4rem;
     display: flex;
     justify-content: space-around;
+    a {
+      color: #000;
+    }
 }

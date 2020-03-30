@@ -14,7 +14,7 @@ interface DispatchType {
     getLogin: (mobile: string, password: string) => void
 }
 
-let LoginlPage: React.FC<DispatchType & StateType & RouteComponentProps> = props => {
+let LoginlPage: React.FC<StateType & DispatchType & RouteComponentProps> = props => {
     let [mobile, setMobile] = useState<string>('')
     let [password, setPassword] = useState<string>('')
 
@@ -47,6 +47,9 @@ let LoginlPage: React.FC<DispatchType & StateType & RouteComponentProps> = props
         
     }
     return <>
+        <div className="logo">
+            <img src="./static/media/logo.f51ce87b.jpg" alt=""/>
+        </div>
         <Input value={mobile} onChange={changeMobile} size="large" placeholder="请输入用户名" />
         <Input.Password value={password} onChange={changePassword} size="large" placeholder="请输入密码" />
         <Button onClick={login} type="primary" block>

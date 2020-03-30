@@ -14,9 +14,18 @@ interface DispatchType {
     getLogin: (mobile: string, password: string) => void
 }
 
-let LoginlPage: React.FC<DispatchType & StateType & RouteComponentProps> = props => {
-    let [mobile, setMobile] = useState('')
-    let [password, setPassword] = useState('')
+let LoginlPage: React.FC<StateType & DispatchType & RouteComponentProps> = props => {
+    let [mobile, setMobile] = useState<string>('')
+    let [password, setPassword] = useState<string>('')
+
+    if (props.isLogin){
+        let redirect = props.location.search.slice(1).split('=')[1]
+        props.history.replace(redirect?decodeURIComponent(redirect): '/')
+        return null;
+        // props.history.push('/')
+    }   
+
+
     //用户名
     let changeMobile = (e: React.ChangeEvent<HTMLInputElement>) =>{
         setMobile(e.target.value)
@@ -27,16 +36,20 @@ let LoginlPage: React.FC<DispatchType & StateType & RouteComponentProps> = props
     }
     //登录发送接口
     let login = () => {
-        if(!mobileReg.test(mobile)) {
+        if(!mobileReg.test(mobile!)) {
             Toast.info('用户名格式错误');
-        } else if(!passwordReg.test(password)) {
+            return
+        } if(!passwordReg.test(password!)) {
             Toast.info('密码格式错误')
+            return
         }
         props.getLogin(mobile, password)
-        alert('登陆成功')
-        props.history.push('/')
+        
     }
     return <>
+        <div className="logo">
+            <img src="./static/media/logo.f51ce87b.jpg" alt=""/>
+        </div>
         <Input value={mobile} onChange={changeMobile} size="large" placeholder="请输入用户名" />
         <Input.Password value={password} onChange={changePassword} size="large" placeholder="请输入密码" />
         <Button onClick={login} type="primary" block>

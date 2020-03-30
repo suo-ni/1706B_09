@@ -37,7 +37,7 @@ interface StateType {
         img_url: string,
         banner_url: string,
         [name: string]: string | number,
-        goodsList: string | any
+        goodsList: any
     }>,
     
 }
@@ -169,13 +169,13 @@ let IndexPage: React.FC<StateType & DispatchType & RouteComponentProps> = props 
             {
                 props.categoryList && props.categoryList.map(item => {
                     return <>
-                        <p>{item.front_desc}</p>
+                        <p key={item.id} >{item.front_desc}</p>
                         <div className="cateGoryName">{item.name}</div>
                         <div className="cateGoryGoodsWrap">
                             {
                                 item.goodsList && item.goodsList.map((v: any) => {
                                     
-                                    return <a href="#">
+                                    return <a key={v.id} href="#">
                                         <div className="goodsItemImg">
                                             <img src={v.list_pic_url} alt=""/>
                                         </div>

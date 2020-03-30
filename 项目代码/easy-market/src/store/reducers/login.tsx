@@ -9,7 +9,6 @@ function loginReducer(state: any, action: ActionType) {
     switch(action.type) {
         case 'LOGIN':
             setToken(action.payload.sessionKey)
-            console.log(action.payload.sessionKey)
             return {...state, isLogin: !!action.payload.sessionKey}
         
         default: return state
