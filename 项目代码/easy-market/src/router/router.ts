@@ -1,10 +1,11 @@
-import {PropType} from '../utils/interface'
+import { PropType } from '../utils/interface'
 
 // 引入一级路由
 import LoginPage from '../views/LoginPage'
 import FavorPage from '../views/FavorPage'
 import MainPage from '../views/MainPage'
 import GoodsDetailPage from '../views/GoodsDetailPage'
+import TopicDetailPage from '../views/TopicDetailPage'
 
 // 引入二级路由
 import IndexPage from '../views/main/IndexPage'
@@ -13,7 +14,7 @@ import TopicPage from '../views/main/TopicPage'
 import TypePage from '../views/main/TypePage'
 import MyPage from '../views/main/MyPage'
 
- 
+
 let config = {
     routes: [{
         path: '/login',
@@ -25,29 +26,34 @@ let config = {
         path: '/goodsDetail',
         component: GoodsDetailPage
     }, {
+        path: '/topicDetail?id',
+        component: TopicDetailPage
+    }, {
         path: '/main',
         component: MainPage,
-        redirect: '/main/index',
+        // redirect: '/main/index',
         children: [{
             path: '/main/index',
             component: IndexPage
-        },{
+        }, {
             path: '/main/topic',
             component: TopicPage
-        },{
+        }, {
             path: '/main/type',
             component: TypePage
-        },{
+        }, {
             path: '/main/cart',
             component: CartPage
-        },{
+        }, {
             path: '/main/my',
             component: MyPage
         }]
-    },{
-        path: '*',
-        redirect: '/main/index'
-    }]
+    },
+    // {
+    //     path: '/',
+    //     redirect: '/main/index'
+    // }
+]
 }
 
 export default config as PropType

@@ -18,7 +18,7 @@ axios.interceptors.request.use(function (config) {
   });
  
 axios.interceptors.response.use(function (response) {
-    if (response.status != 200 || response.data.errno != 0){
+    if (response.status !== 200 || response.data.errno !== 0){
       // 做个错误提示，抛出Promise.resolve
       Toast.info(response.data.errmsg);
       return Promise.resolve();
