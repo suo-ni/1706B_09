@@ -306,8 +306,11 @@ html,body, #root {
 
 //专题页面
 .tabPageContent {
+  width: 100%;
+  height: 100%;
   min-height: 100%;
   padding-bottom: 1.04rem;
+  overflow: hidden;
   .topicItem {
     height: 5.8rem;
     margin-top: .2rem;
@@ -345,6 +348,65 @@ html,body, #root {
       flex: 1;
       overflow: auto;
   }
+
+
+  //分类tab
+.tabPageContent {
+  min-height: 100%;
+  padding-bottom: 1.04rem;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: initial;
+  font-weight: 400;
+  .searchWrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: .8rem;
+    background: #fff;
+    box-shadow: 0 0.04rem 0.08rem 0 rgba(0,0,0,.12), 0 0 6px 0 rgba(0,0,0,.04);
+    .searchInput {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 90%;
+      height: 70%;
+      background: #ededed;
+      border-radius: .1rem;
+      font-size: .28rem;
+      color: #666;
+    }
+  }   
+  .searchInput>span {
+    margin-left: .1rem;
+  }
+  .tabsWrap {
+    position: fixed;
+    top: .84rem;
+    bottom: 1rem;
+    width: 2rem;
+    background: #fff;
+    border-right: 1px solid #f2f2f6;
+    .tabList {
+      display: flex;
+      height: 100%;
+      flex-direction: column;
+      .tabItem {
+        width: 100%;
+        text-align: center;
+        font-size: .28rem;
+        height: 11.1111%;
+      }
+    }
+  }
+}
 .main_footer {
   // position: fixed;
     width: 100%;

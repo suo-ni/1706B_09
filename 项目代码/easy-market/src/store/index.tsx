@@ -10,10 +10,13 @@ import login from './reducers/login'
 //专题精选
 import topic from './reducers/topic'
 
+//分类tab
+import TypeList from './reducers/TypeList'
 let reducers = combineReducers({
     home,
     login,
-    topic
+    topic,
+    TypeList
 })
 
 
