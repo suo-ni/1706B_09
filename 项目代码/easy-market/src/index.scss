@@ -16,13 +16,15 @@ html,body,#root{
   position: relative;
 }
 .login{
-  input{
-    border: 1px solid #000;
-  }
+  width: 100%;
+  height: 100%;
+  background: #fff;
+
   input,button{
     height: .8rem;
     width: 80%;
     margin-left: .8rem;
+    border: none;
   }
   button{
     background: blue;
@@ -30,6 +32,9 @@ html,body,#root{
     color: #fff;
     font-size: .3rem;
   }
+}
+.login>.loginMain {
+  padding: 1.8rem .4rem 0;
 }
 
 .main{
@@ -48,263 +53,8 @@ html,body,#root{
       margin-top: 1rem;
     }
   }
-
-  //tab
-  .channelWrap{
-    width: 100%;
-    height: 1.4rem;
-    padding: .1rem 0;
-    margin-top: .05rem;
-    background: #fff;
-    display: flex;
-    a{
-      width: 20%;
-      height: 100%;
-      color: #000;
-      font-size: .24rem;
-      text-align: center;
-    }
-    img{
-      height: 80%;
-      display: block;
-      padding: .2rem;
-      margin: auto;
-    }
-  }
-.brandBox, .newGoodsBox, .hotGoodsBox, .topGoodsBox{
-  margin-top: .2rem;
-  background: #fff;
-}
-  .brandBox{
-    .brandBox,.brandItem{
-      width: 50%;
-      height: 2.2rem;
-      position: relative;
-    }
-    .brandWrap{
-      .brandItemName{
-        position: absolute;
-        top: .2rem;
-        left: .2rem;
-        font-size: .3rem;
-      }
-      .brandItemMinPrice{
-        position: absolute;
-        top: .6rem;
-        left: .2rem;
-        font-size: .24rem;
-        color: #a9a9a9;
-      }
-      img{
-        width: 100%;
-        height: 100%;
-        max-height: 4rem;
-      }
-    }
-  }
 }
 
-.brandTitle, .newGoodsTitle, .hotGoodsTitle, .topGoodsTitle{
-  height: 1rem;
-  background: #fff;
-  text-align: center;
-  font-size: .3rem;
-  line-height: 1rem;
-  letter-spacing: .02rem;
-  font-weight: 700;
-}
-.brandWrap, .newGoodsWrap{
-    background: #fff;
-    display: flex;
-    flex-wrap: wrap;
-  }
-.newGoodsBox {
-  .newGoodsItem{
-    width: 50%;
-    height: 4rem;
-    img{
-      height: 70%;
-      width: 100%;
-    }
-    .newGoodsName, .newGoodsPrice{
-      height: 12%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: .3rem;
-    }
-    .newGoodsPrice{
-      color: #8b0000;
-    }
-  }
-}
-.hotGoodsBox{
-  .hotGoodsWrap{
-    width: 100%;
-    padding: 0 .2rem;
-    min-height: 200px;
-    .hotGoodsItem>div>div{
-      height: 33.3333%;
-      display: flex;
-      align-items: center;
-    }
-    .hotGoodsItem{
-      height: 3rem;
-      position: relative;
-      padding: .1rem 0;
-      display: flex;
-      img{
-        width: auto;
-        height: 100%;
-      }
-      .hotGoodsInfos{
-        flex: 1;
-        padding: .5rem 0;
-        .hotGoodsName{
-          font-size: .32rem;
-        }
-        .hotGoodsInfo{
-          color: #a9a9a9;
-          font-size: .28rem;
-        }
-        .hotGoodsPrice{
-          color: #8b0000;
-          font-size: .3rem;
-        }
-      }
-    }
-  }
-}
-
-.topGoodsBox{
-  .topGoodsWrap{
-    height: 5.24rem;
-    padding-bottom: .2rem;
-    overflow: hidden;
-    .topGoodsItem{
-      height: 5rem;
-      img{
-        height: 4rem;
-        width: 100%;
-      }
-    }
-  }
-}
-
-.topGoodPrice {
-  color: #8b0000;
-}
-.topGoodTitle {
-  font-size: .24rem;
-  color: grey;
-  margin-top: .1rem;
-  height: .4rem;
-  line-height: .4rem;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.cateGoryBox{
-  height: auto;
-  .cateGoryName{
-    height: 1rem;
-    text-align: center;
-    line-height: 1rem;
-  }
-  .cateGoryGoodsWrap{
-    display: flex;
-    flex-wrap: wrap;
-    .div{
-      width: 50%;
-      height: auto;
-      background: #fff;
-      padding: .2rem;
-      position: relative;
-      div:nth-child(odd):after {
-        border: 1px solid #f5f5f9;
-        border-left-width: 2px;
-      }
-      .goodsItemImg{
-        min-height: 2rem;
-        img{
-          width: 100%;
-          height: auto;
-        }
-      }
-      .goodsItemName {
-        padding-bottom: .3rem;
-        padding-top: .1rem;
-      }
-      .goodsItemName, .goodsItemPrice {
-        text-align: center;
-        font-size: .28rem;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-      }
-      .goodsItemPrice{
-        color: red;
-      }
-      .categoryMoreGoods{
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-      }
-    }
-  }
-}
-
-.tabPageContent{
-  height: 100%;
-  padding-bottom: 1.04rem;
-  .topicItem:nth-child(1){
-    margin-top: 0;
-  }
-  .topicItem{
-    height: 5.8rem;
-    margin-top: .2rem;
-    background: #fff;
-    display: block;
-    img{
-      width: 100%;
-      height: 4rem;
-    }
-    .imgLazyload{
-      opacity: 1;
-      -webkit-transition: all 1s;
-      transition: all 1s;
-    }
-    .topicItemTitle,.topicItemSubtitle{
-      text-align: center;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-    .topicItemTitle{
-      padding: .2rem .1rem .1rem;
-      font-size: .3rem;
-      line-height: .4rem;
-      height: .7rem;
-    }
-    .topicItemSubtitle{
-      padding: .1rem .2rem;
-      font-size: .26rem;
-      color: grey;
-      height: .4rem;
-    }
-    .topicItemPrice{
-      padding: .1rem .1rem .2rem;
-      font-size: .28rem;
-      text-align: center;
-      color: red;
-      line-height: .4rem;
-      height: .7rem;
-    }
-  }
-}
 
 .footer{
   height: 1rem;    

@@ -6,12 +6,14 @@ import ReduxThunk from 'redux-thunk'
 import home from './reducers/home'
 import Login from './reducers/login'
 import topic from './reducers/topic'
+import type from './reducers/type'
 
 // 连接子reducer
 let reducers = combineReducers({
     home,
     Login,
-    topic
+    topic,
+    type
 })
 
 let store = createStore(reducers, applyMiddleware(ReduxThunk, ReduxLogger))

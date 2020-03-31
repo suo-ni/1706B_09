@@ -46,9 +46,11 @@ let LoginPage: React.FC<StateType & DispatchType & RouteComponentProps> = props 
     }
 
     return <div className="login">
-        <input type="text" value={mobile} placeholder="请输入你的手机号码" onChange={changeMobile} /><br/><br/>
-        <input type="password" value={password} placeholder="请输入你的密码" onChange={changePassword} /><br/><br/>
-        <button onClick={login}>登陆</button>
+        <div className="loginMain">
+            <input type="text" value={mobile} placeholder="请输入你的手机号码" onChange={changeMobile} /><br /><br />
+            <input type="password" value={password} placeholder="请输入你的密码" onChange={changePassword} /><br /><br />
+            <button onClick={login}>登陆</button>
+        </div>
     </div>;
 
 
