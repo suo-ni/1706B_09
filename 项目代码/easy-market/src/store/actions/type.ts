@@ -1,4 +1,4 @@
-import {gettypeList} from '../../api'
+import {gettypeList,getTab} from '../../api'
 
 export let typeAction = ()=>{
     return async (dispatch:Function)=>{
@@ -11,3 +11,15 @@ export let typeAction = ()=>{
         }
     }
 }
+
+export let tabAction = (id: any) => {
+    return async (dispatch: Function) => {
+        let data = await getTab(id);
+        if (data) {
+            dispatch({
+                type: 'GET_TAB_LIST',
+                payload: data,
+            });
+        }
+    };
+};

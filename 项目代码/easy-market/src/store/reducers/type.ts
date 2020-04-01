@@ -1,12 +1,17 @@
 import {ActionType} from '../../utils/interface'
 const initVal = {
-    typelist: []
+    typelist: [],
+    currentList: [],
+    curentImg: [],
+    currentCategory: [],
 }
 
 function typeReudcer(state: any, action: ActionType){
     switch (action.type) {
         case 'TYPE':
-            return {...state,typelist:action.payload}
+            return {...state, ...action.payload}
+        case 'GET_TAB_LIST':
+            return { ...state, currentCategory: action.payload.currentCategory };
         default:
             return state;
     }

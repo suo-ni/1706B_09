@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import style from "../../css/type.module.scss"
 import { connect } from 'react-redux'
-import { typeAction } from '../../store/actions/type'
+import { typeAction, tabAction } from '../../store/actions/type'
 import { RouteComponentProps } from "react-router-dom"
 
 interface category {
@@ -24,34 +24,28 @@ interface currentCategory {
     subCategoryList: Array<category>,
 }
 
-interface ItemType {
-    categoryList: Array<category>,
-    currentCategory: currentCategory
-}
 
 interface StateType {
-    typelist: ItemType,
-    tab: Function
+    typelist: Array<category>;
+    curentImg: string;
+    currentCategory:Array<currentCategory>
 }
 interface DisptachType {
-    gettypeList: () => void
+    gettypeList: () => void,
+    getTab: (id: any) => void
 }
 
 let TypePage: React.FC<DisptachType & StateType & RouteComponentProps> = (props) => {
-    // console.log(props.typelist.currentCategory)
-    let [ind] = useState<number>(1005000)
-    console.log(ind);
+    // console.log(props.currentCategory)
+
     useEffect(() => {
         props.gettypeList();
     }, [])
 
-    let tab = (e: any) => {
-        let id = e.currentTarget.dataset.id;
-        ind = id
-        // setind(id)
-        
-        console.log(ind);
-
+    let [ind,setInd] = useState<number>(0)
+    let tab = (index: any,id:any) => {
+        setInd(index)
+        props.getTab(id)
     }
 
     return (
@@ -65,25 +59,24 @@ let TypePage: React.FC<DisptachType & StateType & RouteComponentProps> = (props)
             <div className={style.tabsWrap} >
                 <div className={style.tab}>
                     {
-                        props.typelist.categoryList && props.typelist.categoryList.map(item => (
-                            <div className={ind === item.id ? 'active' : ''} key={item.id} 
-                                onClick={tab} data-id={item.id}
-                                // changeIndex={(index: number) => {
-                                //     setInd(index);
-                                //   }}
-                                  >
+                        props.typelist && props.typelist.map((item,index) => (
+                            <div className={ind === index ? 'active' : ''} key={index} 
+                                onClick={() => {
+                                    tab(index,item.id);
+                                }}>
                                 <p className={style.tabItem}>{item.name}</p>
                             </div>
                         ))
                     }
                 </div>
             </div>
+
             {
-                props.typelist.currentCategory ?
+                props.currentCategory && props.currentCategory.map(item=>(
                     <div className={style.categogContet}>
                         <div className={style.categoryWrap}>
-                            <span>{props.typelist.currentCategory.front_name}</span>
-                            <img src={props.typelist.currentCategory.wap_banner_url} alt="" />
+                            <span>{item.front_name}</span>
+                            <img src={item.wap_banner_url} alt="" />
                         </div>
                         <div className={style.categoryTitle}>
                             <div></div>
@@ -92,25 +85,30 @@ let TypePage: React.FC<DisptachType & StateType & RouteComponentProps> = (props)
                         </div>
                         <div className={style.subCategory}>
                             {
-                                props.typelist.currentCategory.subCategoryList.map(v => (
+                                item.subCategoryList && item.subCategoryList.map(v=>(
                                     <div className={style.subCategoryItem} key={v.id}>
                                         <img src={v.wap_banner_url} alt="" />
                                         <div className={style.subCategoryItemName}>{v.name}</div>
                                     </div>
                                 ))
                             }
-
                         </div>
                     </div>
-                    : ''
+                ))
             }
 
         </div>
     )
 }
 const mapStateToProps = (state: any) => {
-    return {
-        typelist: state.type.typelist
+    // console.log([state.type.currentCategory])
+    if ([state.type.currentCategory]) {
+        return {
+            typelist: state.type.categoryList,
+            currentCategory: [state.type.currentCategory],
+        };
+    } else {
+        return;
     }
 }
 
@@ -118,7 +116,10 @@ const mapDispatchToProps = (dispatch: Function) => {
     return {
         gettypeList: () => {
             dispatch(typeAction())
-        }
+        },
+        getTab: (id: any) => {
+            dispatch(tabAction(id));
+        },
     }
 }
 
