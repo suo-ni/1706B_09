@@ -1,16 +1,18 @@
 import { ActionType } from '../../utils/interface'
 
 const initval = {
-    Typelist: [],
-    contentItem: {}
+    list: [],
+    currentList: [],
+    curentImg: [],
+    currentCategory: [],
 }
 
 function typeListreducer(state: any, action: ActionType) {
     switch(action.type) {
         case 'GET_TYPE':
-            return {...state, Typelist: action.payload}
-        case 'GET_CONTENT_LIST':
-            return { ...state, contentItem: action.payload }
+            return {...state,  ...action.payload}
+        case 'GET_TAB_LIST':
+            return { ...state, currentCategory: action.payload.currentCategory };
         default: return state
     }
 }

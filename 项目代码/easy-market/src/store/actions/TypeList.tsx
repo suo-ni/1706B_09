@@ -1,4 +1,4 @@
-import { TypeList, contentList } from '../../api/typelist'
+import { TypeList, getTab } from '../../api/typelist'
 
 //type分类tab
 export let TypeListAction = () => {
@@ -15,16 +15,15 @@ export let TypeListAction = () => {
     }
 }
 
-export let contentAction = (id: number) => {
+export let tabAction = (id: any) => {
     return async (dispatch: Function) => {
-      let res = await contentList(id);
-      
-      if (res) {
-        console.log(res)
-        dispatch({
-          type: "GET_CONTENT_LIST",
-          payload: res
-        })
-      }
-    }
-  }
+        let data = await getTab(id);
+        console.log(data)
+        if (data) {
+            dispatch({
+                type: 'GET_TAB_LIST',
+                payload: data,
+            });
+        }
+    };
+};

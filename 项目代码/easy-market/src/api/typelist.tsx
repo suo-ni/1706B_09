@@ -5,6 +5,6 @@ export let TypeList = () => {
     return axios.get('/catalog/index')
 }
 
-export let contentList = (id: number) => axios.get('/catalog/current', {
-    params: {id}
-})
+export let getTab = (id: any) => {
+    return axios.get(`/catalog/current?id=${id}`);
+};

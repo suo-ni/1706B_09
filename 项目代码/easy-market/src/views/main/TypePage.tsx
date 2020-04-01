@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import { PropType, RouterItemType } from '../../utils/interface'
 import { connect } from 'react-redux'
-import { TypeListAction, contentAction } from '../../store/actions/TypeList'
+import { TypeListAction, tabAction } from '../../store/actions/TypeList'
 import { RouteComponentProps } from 'react-router'
 import TabBar from '../../components/tabBar'
 
 
 interface StateType {
-    list: ItemType,
-    changeIndex: (index: number) => void
+    list: Array<category>,
+    curentTmg: string,
+    currentCategory: Array<currentCategory>
 }
 interface category {
     id: number,
@@ -30,25 +31,26 @@ interface currentCategory {
     subCategoryList: Array<category>,
 }
 
-interface ItemType {
-    categoryList: Array<category>,
-    currentCategory: currentCategory
-}
+
 // interface itemType {
 //     [name: string]: string | number
 // }
 
 interface DispatchType {
     TypeList: () => void,
-    getContentItem: Function
+    getTab: (id: any) => void
 }
 
 
 
 let TypePage: React.FC<StateType & DispatchType & RouteComponentProps> = props => {
-    console.log(props.list.categoryList)
-let [ind, setInd] = useState(0)
-let [activeIndex, setActiveIndex] = useState(0)
+    console.log(props.list)
+    let [ind, setInd] = useState<number>(0)
+    // let [activeIndex, setActiveIndex] = useState(0)
+    let tab = (index: any, id: any) => {
+        setInd(index)
+        props.getTab(id)
+    }
     useEffect(() => {
         props.TypeList();
     }, [])
@@ -58,13 +60,13 @@ let [activeIndex, setActiveIndex] = useState(0)
     //       props.getContentItem(props.list[ind].id);
     //     }
     //   }, [props.list])
-    
+
     //   useEffect(() => {
     //     if (props.list.length > 0) {
     //       props.getContentItem(props.list[ind].id);
     //     }
     //   }, [ind])
-    
+
     return <div className="tabPageContent">
         <div className="searchWrap">
             <div className="searchInput">
@@ -74,50 +76,45 @@ let [activeIndex, setActiveIndex] = useState(0)
         <div className="tabsWrap">
             <div className="tabList">
                 {
-                    props.list.categoryList && props.list.categoryList.map((item, index: number) => {
-                        return (
-                            <div key={item.id}
-                                className={activeIndex === index ? 'active': ''}
-                                id="tabItem"
-                            >{item.name}</div>
-                        )
+                    props.list && props.list.map((item, index) => {
+                        console.log(item)
+                        return <div className={ind === index ? 'active' : ''} key={index}
+                            onClick={() => {
+                                tab(index, item.id);
+                            }}>
+                            <p className="tabItem">{item.name}</p>
+                        </div>
                     })
                 }
             </div>
         </div>
 
-
-        <div className="categogContet">
-            <div className="categoryWrap" 
-            >
                 {
-                props.list.currentCategory ?
-                    <div className="categogContet">
-                        <div className="categoryWrap">
-                            <span>{props.list.currentCategory.front_name}</span>
-                            <img src={props.list.currentCategory.wap_banner_url} alt="" />
-                        </div>
-                        <div className="categoryTitle">
+                    props.currentCategory && props.currentCategory.map(item => (
+                        <div className="categogContet">
+                            <div className="categoryWrap">
+                                <span>{item.front_name}</span>
+                                <img src={item.wap_banner_url} alt="" />
+                            </div>
+                            <div className="categoryTitle">
+                                <div></div>
+                                居家分类
                             <div></div>
-                            居家分类
-                            <div></div>
+                            </div>
+                            <div className="subCategory">
+                                {
+                                    item.subCategoryList && item.subCategoryList.map(v => (
+                                        <div className="subCategoryItem" key={v.id}>
+                                            <img src={v.wap_banner_url} alt="" />
+                                            <div className="subCategoryItemName">{v.name}</div>
+                                        </div>
+                                    ))
+                                }
+                            </div>
                         </div>
-                        <div className="subCategory">
-                            {
-                                props.list.currentCategory.subCategoryList.map(v => (
-                                    <div className="subCategoryItem" key={v.id}>
-                                        <img src={v.wap_banner_url} alt="" />
-                                        <div className="subCategoryItemName">{v.name}</div>
-                                    </div>
-                                ))
-                            }
+                    ))
+                }
 
-                        </div>
-                    </div>
-                    : ''
-            }
-            </div>
-        </div>
 
 
 
@@ -153,10 +150,15 @@ let [activeIndex, setActiveIndex] = useState(0)
 }
 
 const mapStateToProps = (state: any) => {
-    return {
-        list: state.TypeList.Typelist,
-        // contentItem: state.TypeList.currentCategory
+    if ([state.type.currentCategory]) {
+        return {
+            list: state.TypeList.categoryList,
+            currentCategory: [state.TypeList.currentCategory],
+        }
+    } else {
+        return
     }
+
 }
 
 const mapDispatchToProps = (dispatch: Function) => {
@@ -164,8 +166,8 @@ const mapDispatchToProps = (dispatch: Function) => {
         TypeList: () => {
             dispatch(TypeListAction())
         },
-        getContentItem(id: number) {
-            dispatch(contentAction(id))
+        getTab(id: any) {
+            dispatch(tabAction(id))
         }
     }
 }
