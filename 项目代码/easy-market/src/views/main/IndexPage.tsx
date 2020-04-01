@@ -76,7 +76,7 @@ let IndexPage: React.FC<StateType & DispatchType & RouteComponentProps> = props 
                 </div> */}
             </div>
         </div>
-        <div className="main_main">
+        {/* <div className="main_main"> */}
             <div className="channelWrap">
                 {
                     props.channel.map(item => (
@@ -194,7 +194,7 @@ let IndexPage: React.FC<StateType & DispatchType & RouteComponentProps> = props 
                 
                  })   
             </div>
-        </div>
+        {/* </div> */}
     </>
 }
 

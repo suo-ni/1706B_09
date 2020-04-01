@@ -4,3 +4,7 @@ import axios from '../utils/request'
 export let TypeList = () => {
     return axios.get('/catalog/index')
 }
+
+export let contentList = (id: number) => axios.get('/catalog/current', {
+    params: {id}
+})

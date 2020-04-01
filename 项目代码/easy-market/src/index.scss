@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -10,7 +11,7 @@ html,body, #root {
 #root {
   display: flex;
   flex-direction: column;
-  position: relative;
+  // position: relative;
 }
 .main_home {
   flex: 1;
@@ -305,116 +306,222 @@ html,body, #root {
 
 
 //专题页面
-.tabPageContent {
+// .tabPageContent {
+//   width: 100%;
+//   height: 100%;
+//   min-height: 100%;
+//   padding-bottom: 1.04rem;
+//   overflow: hidden;
+//   .connect {
+//     width: 100%;
+//     height: 100%;
+//   }
+//   .topicItem {
+//     height: 5.8rem;
+//     margin-top: .2rem;
+//     background: #fff;
+//     display: block;
+//     img {
+//       width: 100%;
+//       height: 4rem;
+//       opacity: 1;
+//       // -webkit-transition: all 1s;
+//       transition: all 1s;
+//     }
+//     .topicItemSubtitle, .topicItemTitle {
+//       color: #000;
+//       text-align: center;
+//       overflow: hidden;
+//       text-overflow: ellipsis;
+//       white-space: nowrap;
+//     }
+//     .topicItemSubtitle {
+//       color: grey;
+//     }
+//     .topicItemPrice {
+//       padding: .1rem .1rem .2rem;
+//       font-size: .28rem;
+//       text-align: center;
+//       color: red;
+//       line-height: .4rem;
+//       height: .7rem;
+//   }
+//   }
+// }
+
+.topic-li{
   width: 100%;
-  height: 100%;
-  min-height: 100%;
-  padding-bottom: 1.04rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.topic-li img{
+  width: 100%;
+}
+.topic-li div{
+  text-align: center;
+  line-height: 0.4rem;
+  padding: .2rem .1rem .1rem;
+  font-size: .3rem;
   overflow: hidden;
-  .topicItem {
-    height: 5.8rem;
-    margin-top: .2rem;
-    background: #fff;
-    display: block;
-    img {
-      width: 100%;
-      height: 4rem;
-      opacity: 1;
-      // -webkit-transition: all 1s;
-      transition: all 1s;
-    }
-    .topicItemSubtitle, .topicItemTitle {
-      color: #000;
-      text-align: center;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-    .topicItemSubtitle {
-      color: grey;
-    }
-    .topicItemPrice {
-      padding: .1rem .1rem .2rem;
-      font-size: .28rem;
-      text-align: center;
-      color: red;
-      line-height: .4rem;
-      height: .7rem;
-  }
-  }
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.topic-li div:last-child{
+  color:red;
 }
 
-.main_main {
-      flex: 1;
-      overflow: auto;
-  }
+// .main_main {
+//       flex: 1;
+//       overflow: auto;
+//   }
 
 
   //分类tab
-.tabPageContent {
-  min-height: 100%;
-  padding-bottom: 1.04rem;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: initial;
-  font-weight: 400;
-  .searchWrap {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: .8rem;
-    background: #fff;
-    box-shadow: 0 0.04rem 0.08rem 0 rgba(0,0,0,.12), 0 0 6px 0 rgba(0,0,0,.04);
-    .searchInput {
+  .tabPageContent {
+    min-height: 100%;
+    padding-bottom: 1.04rem;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: initial;
+    font-weight: 400;
+    .searchWrap {
+      z-index: 9999999;
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 90%;
-      height: 70%;
-      background: #ededed;
-      border-radius: .1rem;
-      font-size: .28rem;
-      color: #666;
-    }
-  }   
-  .searchInput>span {
-    margin-left: .1rem;
-  }
-  .tabsWrap {
-    position: fixed;
-    top: .84rem;
-    bottom: 1rem;
-    width: 2rem;
-    background: #fff;
-    border-right: 1px solid #f2f2f6;
-    .tabList {
-      display: flex;
-      height: 100%;
-      flex-direction: column;
-      .tabItem {
-        width: 100%;
-        text-align: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: .8rem;
+      background: #fff;
+      box-shadow: 0 0.04rem 0.08rem 0 rgba(0,0,0,.12), 0 0 6px 0 rgba(0,0,0,.04);
+      .searchInput {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+        height: 70%;
+        background: #ededed;
+        border-radius: .1rem;
         font-size: .28rem;
-        height: 11.1111%;
+        color: #666;
+      }
+    }   
+    .searchInput>span {
+      margin-left: .1rem;
+    }
+    .tabsWrap {
+      position: fixed;
+      top: .84rem;
+      bottom: 1rem;
+      width: 2rem;
+      background: #fff;
+      border-right: 1px solid #f2f2f6;
+      .tabList {
+        height: 378px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0; 
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: initial;
+        font-weight: bolder;
+        #tabItem {
+           width: 100%;
+          text-align: center;
+          font-size: .28rem;
+          height: 11.1111%;
+          font-weight: 400;
+          font: inherit;
+          vertical-align: initial;
+          line-height: 1rem;
+        }
       }
     }
+    .categogContet{
+      margin-top: .84rem;
+      margin-left: 2rem;
+      overflow: hidden;
+      .categoryWrap{
+          height: 2rem;
+          background: #fff;
+          position: relative;
+          
+          img{
+              width: 100%;
+              height: 100%;
+          }
+          span{
+              position: absolute;
+              display: block;
+              color: #fff;
+              font-size: .3rem;
+          }
+      }
+      .categoryTitle, .categoryWrap {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .categoryTitle{
+        background: #fff;
+        padding: .2rem;
+        font-size: .28rem;
+        color: #2196f3;
+        div{
+          width: .4rem;
+          height: 1px;
+          background: #2196f3;
+          margin: 0 .2rem;
+        }
+      }
+      .subCategory{
+        background: #fff;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 0 .2rem .2rem;
+        .subCategoryItem{
+          width: 50%;
+            img{
+              opacity: 1;
+              -webkit-transition: all 1s;
+              transition: all 1s;
+              width: 100%;
+              padding: .2rem;
+              height: auto;
+            }
+            .subCategoryItemName{
+              font-size: .28rem;
+              text-align: center;
+              padding: .02rem 0;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+            }
+        }
+      }
   }
-}
+} 
 .main_footer {
-  // position: fixed;
     width: 100%;
     height: 1rem;
     font-size: .24rem;
     line-height: .4rem;
     display: flex;
+    align-items: center;
+    position: sticky;
+    bottom: 0;
     justify-content: space-around;
+    background: #fff;
     a {
       color: #000;
     }

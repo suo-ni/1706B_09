@@ -5,11 +5,12 @@ import RouterView from '../router/RouterView'
 
 
 let MainPage: React.FC<PropType> = props => {
-    
+
     return <>
-        
+
         <div className="main_home">
             <RouterView routes={props.routes} />
+
         </div>
         <footer className="main_footer">
             <NavLink to="/main/index">首页</NavLink>
@@ -18,6 +19,7 @@ let MainPage: React.FC<PropType> = props => {
             <NavLink to="/main/cart">购物车</NavLink>
             <NavLink to="/main/my">我的</NavLink>
         </footer>
+
     </>
 }
 
