@@ -14,9 +14,6 @@ interface ItemType {
     scene_pic_url: string
 }
 
-interface BSProps {
-    getBs: (size: number, page: number) => void
-}
 
 interface StateType {
     list: Array<ItemType>
@@ -25,39 +22,20 @@ interface DisptachType {
     getTopicList: () => void
 }
 
-let TopicPage: React.FC<DisptachType & BSProps & StateType & RouteComponentProps> = (props) => {
+let TopicPage: React.FC<DisptachType & StateType & RouteComponentProps> = (props) => {
     // console.log(props.list)
-    let [size, useSize] = useState<number>(10)
-    let [page, setPage] = useState<number>(0)
+    // let [size, useSize] = useState<number>(10)
+    // let [page, setPage] = useState<number>(0)
 
 
     useEffect(() => {
         props.getTopicList();
     }, [])
 
-    let getDetail = (e:any) => {
+    let goDetail = (e:any)=>{
         let id = e.currentTarget.dataset.id;
-        // props.history.push("/topicDetail?id=" + id)
+        props.history.push(`/topicDetail/${id}`);
     }
-
-    // useEffect(() => {
-    //     props.getBs(size, page)
-    //     setPage(page += 1)
-    //     // console.log(size, page)
-    //     let bs = new BScroll('.tabPageContent', {
-    //         click: true,
-    //         pullUpLoad: {
-    //             threshold: -100
-    //         }
-    //     });
-    //     bs.on('pullingUp', () => {
-    //         props.getBs(size, page)
-    //         setPage(page += 1)
-    //         console.log(size, page)
-    //         bs.finishPullUp()
-    //         bs.refresh()
-    //     })
-    // }, [])
 
     useEffect(()=>{
     let flag = false;
@@ -90,8 +68,8 @@ let TopicPage: React.FC<DisptachType & BSProps & StateType & RouteComponentProps
                 {
                     props.list && props.list.map(item => {
                         return (
-                            <div className="topicItem" key={item.id} onClick={getDetail} data-id={item.id}>
-                                <img src={item.scene_pic_url} alt="" />
+                            <div className="topicItem" key={item.id} onClick={goDetail} data-id={item.id}>
+                                <img src={item.scene_pic_url} alt=""/>
                                 <div className="topicItemTitle">{item.title}</div>
                                 <div className="topicItemSubtitle">{item.subtitle}</div>
                                 <div className="topicItemPrice">{item.price_info}元起</div>
@@ -112,9 +90,6 @@ const mapStateToProps = (state: any) => {
 const mapDispatchToProps = (dispatch: Function) => {
     return {
         getTopicList: () => {
-            dispatch(topicAction())
-        },
-        getBs: () => {
             dispatch(topicAction())
         }
     }

@@ -4,6 +4,7 @@ const initVal = {
     currentList: [],
     curentImg: [],
     currentCategory: [],
+    typeDetail: {}
 }
 
 function typeReudcer(state: any, action: ActionType){
@@ -12,6 +13,8 @@ function typeReudcer(state: any, action: ActionType){
             return {...state, ...action.payload}
         case 'GET_TAB_LIST':
             return { ...state, currentCategory: action.payload.currentCategory };
+        case 'GET_TYPEDETAIL':
+            return {...state, typeDetail: action.payload.currentCategory}
         default:
             return state;
     }

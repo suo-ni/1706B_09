@@ -7,7 +7,7 @@ let RouterView: React.FC<PropType> = props=>{
     return <Switch>{
         props.routes.map((item, index)=>{
             if (item.redirect){
-                if (item.path === '/'){
+                if (item.path === '*'){
                     return <Redirect key={item.path} to={item.redirect}/>
                 }
             }            

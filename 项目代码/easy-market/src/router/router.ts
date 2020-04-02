@@ -6,6 +6,7 @@ import FavorPage from '../views/FavorPage'
 import MainPage from '../views/MainPage'
 import GoodsDetailPage from '../views/GoodsDetailPage'
 import TopicDetailPage from '../views/TopicDetailPage'
+import categorys from '../views/categorys'
 
 // 引入二级路由
 import IndexPage from '../views/main/IndexPage'
@@ -26,12 +27,15 @@ let config = {
         path: '/goodsDetail',
         component: GoodsDetailPage
     }, {
-        path: '/topicDetail?id',
+        path: '/topicDetail/:id',
         component: TopicDetailPage
+    },{
+        path:"/typeDetail/:id",
+        component:categorys
     }, {
         path: '/main',
         component: MainPage,
-        // redirect: '/main/index',
+        redirect: '/main/index',
         children: [{
             path: '/main/index',
             component: IndexPage
@@ -49,10 +53,10 @@ let config = {
             component: MyPage
         }]
     },
-    // {
-    //     path: '/',
-    //     redirect: '/main/index'
-    // }
+    {
+        path: '*',
+        redirect: '/main/index'
+    }
 ]
 }
 

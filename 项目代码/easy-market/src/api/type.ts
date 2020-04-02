@@ -7,3 +7,8 @@ export let gettypeList = ()=>{
 export let getTab = (id: any) => {
     return axios.get(`/catalog/current?id=${id}`);
 };
+
+
+export let getTypeDetail = (id: string) => {
+    return axios.get(`/catalog/current?id=${id}`);
+};

@@ -48,6 +48,12 @@ let TypePage: React.FC<DisptachType & StateType & RouteComponentProps> = (props)
         props.getTab(id)
     }
 
+    let goTypeDetail = (e: any)=>{
+        let id = e.currentTarget.dataset.id;
+        console.log(id)
+        props.history.push(`/typeDetail/${id}`)
+    }
+
     return (
         <div className={style.tabPageContent}>
             <div className={style.searchWrap}>
@@ -60,7 +66,7 @@ let TypePage: React.FC<DisptachType & StateType & RouteComponentProps> = (props)
                 <div className={style.tab}>
                     {
                         props.typelist && props.typelist.map((item,index) => (
-                            <div className={ind === index ? 'active' : ''} key={index} 
+                            <div className={ind === index ? 'active' : ''} key={item.id} 
                                 onClick={() => {
                                     tab(index,item.id);
                                 }}>
@@ -72,8 +78,8 @@ let TypePage: React.FC<DisptachType & StateType & RouteComponentProps> = (props)
             </div>
 
             {
-                props.currentCategory && props.currentCategory.map(item=>(
-                    <div className={style.categogContet}>
+                props.currentCategory && props.currentCategory.map((item,index)=>(
+                    <div className={style.categogContet} key={index}>
                         <div className={style.categoryWrap}>
                             <span>{item.front_name}</span>
                             <img src={item.wap_banner_url} alt="" />
@@ -86,7 +92,7 @@ let TypePage: React.FC<DisptachType & StateType & RouteComponentProps> = (props)
                         <div className={style.subCategory}>
                             {
                                 item.subCategoryList && item.subCategoryList.map(v=>(
-                                    <div className={style.subCategoryItem} key={v.id}>
+                                    <div className={style.subCategoryItem} key={v.id} onClick={goTypeDetail} data-id={v.id}>
                                         <img src={v.wap_banner_url} alt="" />
                                         <div className={style.subCategoryItemName}>{v.name}</div>
                                     </div>
@@ -119,7 +125,7 @@ const mapDispatchToProps = (dispatch: Function) => {
         },
         getTab: (id: any) => {
             dispatch(tabAction(id));
-        },
+        }
     }
 }
 
