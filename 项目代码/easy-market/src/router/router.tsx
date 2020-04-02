@@ -13,7 +13,8 @@ import CartPage from '../views/main/CartPage'
 import TopicPage from '../views/main/TopicPage'
 import TypePage from '../views/main/TypePage'
 import MyPage from '../views/main/MyPage'
-
+import TopicDetailPage from '../views/TopicDetailPage'
+import BrandDetailPage from '../views/BrandDetailPage'
 
 let config = {
     routes: [{
@@ -25,7 +26,16 @@ let config = {
     }, {
         path: '/goodsDetail',
         component: GoodsDetailPage
-    }, {
+    },
+    {
+        path: '/topicdetail/:id',
+        component: TopicDetailPage
+    },
+    {
+        path: '/branddetail/:id',
+        component: BrandDetailPage
+    },
+     {
         path: '/main',
         component: MainPage,
         redirect: '/main/index',
@@ -45,11 +55,11 @@ let config = {
             path: '/main/my',
             component: MyPage
         }]
-    },
-        {
-            path: '*',
-            redirect: '/main/index'
-        }
+    }
+        // {
+        //     path: '*',
+        //     redirect: '/main/index'
+        // }
     ]
 }
 

@@ -44,7 +44,6 @@ interface DispatchType {
 
 
 let TypePage: React.FC<StateType & DispatchType & RouteComponentProps> = props => {
-    console.log(props.list)
     let [ind, setInd] = useState<number>(0)
     // let [activeIndex, setActiveIndex] = useState(0)
     let tab = (index: any, id: any) => {
@@ -54,6 +53,12 @@ let TypePage: React.FC<StateType & DispatchType & RouteComponentProps> = props =
     useEffect(() => {
         props.TypeList();
     }, [])
+
+    let goTypeDetail = (e: React.MouseEvent<HTMLImageElement>) => {
+        let id = e.currentTarget.dataset.id
+        props.history.push(`/branddetail/${id}`)
+        console.log(id)
+    }
 
     // useEffect(() => {
     //     if (props.list.length > 0) {
@@ -77,7 +82,6 @@ let TypePage: React.FC<StateType & DispatchType & RouteComponentProps> = props =
             <div className="tabList">
                 {
                     props.list && props.list.map((item, index) => {
-                        console.log(item)
                         return <div className={ind === index ? 'active' : ''} key={index}
                             onClick={() => {
                                 tab(index, item.id);
@@ -105,7 +109,7 @@ let TypePage: React.FC<StateType & DispatchType & RouteComponentProps> = props =
                                 {
                                     item.subCategoryList && item.subCategoryList.map(v => (
                                         <div className="subCategoryItem" key={v.id}>
-                                            <img src={v.wap_banner_url} alt="" />
+                                            <img onClick={goTypeDetail} data-id={item.id} src={v.wap_banner_url} alt="" />
                                             <div className="subCategoryItemName">{v.name}</div>
                                         </div>
                                     ))

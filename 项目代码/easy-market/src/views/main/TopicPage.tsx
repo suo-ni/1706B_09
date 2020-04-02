@@ -26,14 +26,14 @@ interface DispatchType {
 }
 
 let TopiclPage: React.FC<StateType & BSProps & DispatchType & RouteComponentProps> = props => {
+    console.log(props)
     useEffect(() => {
         props.Topic()
         props.getBs()
     }, []);
     let goDetail = (e: React.MouseEvent<HTMLImageElement>) => {
         let id = e.currentTarget.dataset.id;
-        // props.history.push('/TopicDetailPage?id=' + id)
-        console.log(id)
+        props.history.push(`/topicdetail/${id}`)
     };
 
     // let [size, useSize] = useState(10)
@@ -44,16 +44,11 @@ let TopiclPage: React.FC<StateType & BSProps & DispatchType & RouteComponentProp
         let scrollHandle = (e: Event) => {
             if(flag) return;
             let scrollY = (e.currentTarget as Window).scrollY
-            console.log('-----', scrollY)
-            if((window.innerHeight + scrollY) - document.documentElement.getBoundingClientRect().height  < 20) {
-                console.log('到底了')
-                console.log(document.documentElement.getBoundingClientRect().height - (window.innerHeight + scrollY))
-                console.log(document.documentElement.getBoundingClientRect().height)
+            if(document.documentElement.getBoundingClientRect().height - (window.innerHeight + scrollY) < 20) {
                 // if(props.list.length <= (page+1)*10){
                 //     return;
                 //  }
                 //   flag = true
-                  console.log('底部')
                   setPage(page=>page+1)
                   flag = false;
             }
@@ -88,7 +83,7 @@ let TopiclPage: React.FC<StateType & BSProps & DispatchType & RouteComponentProp
             <div className="connect"> */}
                 {
                     props.list.slice(0, (page+1)*10).map((item) => {
-                        // return <a className="topicItem" href="#">
+                        // return <a className="topic-li" href="#">
                         //     <img key={item.id} onClick={goDetail} data-id={item.id} className="imgLazyload" src={item.scene_pic_url} alt="" />
                         //     <div className="topicItemTitle">{item.title}</div>
                         //     <div className="topicItemSubtitle">{item.subtitle}</div>
@@ -96,8 +91,8 @@ let TopiclPage: React.FC<StateType & BSProps & DispatchType & RouteComponentProp
                         //         {item.price_info}元起
                         //     </div>
                         // </a>
-                        return <li key={item.id} className='topic-li' data-id={item.id}>
-                        <img src={item.scene_pic_url} alt=""/>
+                        return <li key={item.id} className='topic-li'>
+                        <img  onClick={ goDetail} src={item.scene_pic_url} data-id={item.id} alt=""/>
                         <div>{item.title}</div>
                         <div>{item.subtitle}</div>
                         <div>{item.price_info}元起</div>

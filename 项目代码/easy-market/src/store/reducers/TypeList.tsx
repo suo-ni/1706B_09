@@ -5,6 +5,7 @@ const initval = {
     currentList: [],
     curentImg: [],
     currentCategory: [],
+    detail: {}
 }
 
 function typeListreducer(state: any, action: ActionType) {
@@ -13,6 +14,8 @@ function typeListreducer(state: any, action: ActionType) {
             return {...state,  ...action.payload}
         case 'GET_TAB_LIST':
             return { ...state, currentCategory: action.payload.currentCategory };
+        case 'GET_TYPE_DETAIL':
+            return {...state, detail: action.payload.currentCategory}
         default: return state
     }
 }

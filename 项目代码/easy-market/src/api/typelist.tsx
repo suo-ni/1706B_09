@@ -8,3 +8,8 @@ export let TypeList = () => {
 export let getTab = (id: any) => {
     return axios.get(`/catalog/current?id=${id}`);
 };
+
+//分类详情
+export let TypeDetail = (id: string) => {
+    return axios.get(`/catalog/current?id=${id}`)
+}

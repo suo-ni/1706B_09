@@ -8,6 +8,7 @@ import config from './router/router'
 import RouterView from './router/RouterView'
 import 'antd/dist/antd.css'
 import 'antd-mobile/dist/antd-mobile.css'
+import './font/iconfont.css'
 
 ReactDOM.render(<Provider store={store}> <HashRouter>
     <RouterView routes={config.routes}/>
