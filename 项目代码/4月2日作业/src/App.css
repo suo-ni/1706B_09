@@ -1,0 +1,50 @@
+html,
+body,
+#root,
+.App,
+.App>div {
+  width: 100%;
+  height: 100%;
+  /* background: #eee; */
+}
+
+.Home {
+  display: flex;
+  flex-direction: column;
+}
+
+.Home .main {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.Home footer {
+  width: 100%;
+  height: 1rem;
+  background: #fff;
+  border-top: 0.02rem solid #999;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0 -3px 10px 0 rgba(0,0,0,.2);
+}
+
+.Home footer a {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-around;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+  font-size: 0.24rem;
+}
+
+.Home footer .active {
+  color: #4AA9F5;
+}
+
+.am-wingblank a img {
+  width: 100%;
+  height: 4rem;
+}
