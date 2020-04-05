@@ -124,7 +124,7 @@ html, body, #root {
 
 .footer {
   height: 1rem;
-  line-height: 0.5rem;
+  line-height: 1rem;
   display: flex;
 }
 
@@ -132,8 +132,22 @@ html, body, #root {
   flex: 1;
   color: #000;
   font-size: .28rem;
-  line-height: .4rem;
   text-align: center;
+}
+
+.footer a .itemIcon {
+  line-height: .55rem;
+  text-align: center;
+  font-size: .44rem;
+  transition: all .5s ease-in-out;
+}
+
+.footer a .itemName {
+  height: 35%;
+  text-align: center;
+  font-size: .24rem;
+  line-height: .4rem;
+  transition: all .5s;
 }
 
 .footer .active {

@@ -16,22 +16,21 @@ interface DispatchType {
 }
 
 let TopicDetailPage: React.FC<DispatchType & StateType & RouteComponentProps<{ id: string }>> = props => {
-    console.log(props.detail)
+    
     useEffect(() => {
         let id = props.match.params.id
         props.getTopicDetail(id);
     }, []);
 
-    useEffect(()=>{
-        if (props.detail.title){
-            // document.title = props.detail.title;
-        }
-    }, [props.detail])
+    let go = () => {
+        props.history.go(-1)
+    }
+
     return (
         <div className={styles.topicDetail}>
             <div className={styles.header}>
-                <div className={styles.left}><i></i></div>
-                <div className={styles.title}></div>
+                <div className={styles.left} onClick={go}><i className="iconfont icon-xiangzuo"></i></div>
+                <div className={styles.title}>{props.detail.title}</div>
                 <div className={styles.right}></div>
             </div>
             <div className={styles.topicDetailImg} dangerouslySetInnerHTML={{ __html: props.detail.content }}></div>

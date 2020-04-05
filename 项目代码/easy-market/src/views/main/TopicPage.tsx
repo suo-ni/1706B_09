@@ -37,30 +37,30 @@ let TopicPage: React.FC<DisptachType & StateType & RouteComponentProps> = (props
         props.history.push(`/topicDetail/${id}`);
     }
 
-    useEffect(()=>{
-    let flag = false;
-    let scrollHandle = (e:Event)=>{
-        console.log(e);
-        if(flag){
-            return;
-        }
-        let scrollY = (e.currentTarget as Window).scrollY
-        // if(document.documentElement.offsetHeight - (window.innerHeight+scrollY)<0){
-            // if(props.list.length <= (page+1)*10){
-            //     return;
-            // }
-            // flag = true
-            // setPage(page=>page+1)
-            // flag = false
-        // }
+    // useEffect(()=>{
+    // let flag = false;
+    // let scrollHandle = (e:Event)=>{
+    //     console.log(e);
+    //     if(flag){
+    //         return;
+    //     }
+    //     let scrollY = (e.currentTarget as Window).scrollY
+    //     // if(document.documentElement.offsetHeight - (window.innerHeight+scrollY)<0){
+    //         // if(props.list.length <= (page+1)*10){
+    //         //     return;
+    //         // }
+    //         // flag = true
+    //         // setPage(page=>page+1)
+    //         // flag = false
+    //     // }
         
-    }
-    let wrapHandle = debounce(scrollHandle);
-    window.addEventListener('scroll',wrapHandle)
-    return () =>{
-        window.removeEventListener("scroll",wrapHandle)
-    }
-    },[props.list])
+    // }
+    // let wrapHandle = debounce(scrollHandle);
+    // window.addEventListener('scroll',wrapHandle)
+    // return () =>{
+    //     window.removeEventListener("scroll",wrapHandle)
+    // }
+    // },[props.list])
 
     return <>
         <div className="tabPageContent">

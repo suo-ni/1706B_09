@@ -1,5 +1,4 @@
 import {getTopicList,getTopicDetail} from '../../api'
-import { async } from 'q';
 
 //专题列表
 export let topicAction = ()=>{
@@ -19,7 +18,6 @@ export let topicAction = ()=>{
 export let topicDetailAction = (id:string)=>{
     return async (dispatch:Function)=>{
         let data = await getTopicDetail(id);
-        console.log(data)
         if(data){
             dispatch({
                 type:"TOPIC_DETAIL",

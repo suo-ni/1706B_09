@@ -1,0 +1,104 @@
+.noTabPageContent {
+  padding-top: 1.04rem;
+  min-height: 100%;
+}
+
+.noTabPageContent .searchPage {
+  height: auto;
+}
+
+.noTabPageContent .searchPage .searchFix {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 11;
+  box-shadow: 0 0.04rem 0.08rem 0 rgba(0, 0, 0, 0.12), 0 0 6px 0 rgba(0, 0, 0, 0.04);
+}
+
+.noTabPageContent .searchPage .searchInputWrap {
+  width: 100%;
+  height: 1rem;
+  padding: .1rem 0;
+  background: #fff;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.noTabPageContent .searchPage .searchInputWrap .goBack, .noTabPageContent .searchPage .searchInputWrap .cancelSearch {
+  width: auto;
+  padding: 0 .2rem;
+}
+
+.noTabPageContent .searchPage .searchInputWrap .icon {
+  background: #f5f5f9;
+  width: .64rem;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: grey;
+  font-size: .64rem;
+}
+
+.noTabPageContent .searchPage .searchInputWrap .searchInput {
+  flex: 1 1;
+  height: 100%;
+  background: #f5f5f9;
+  border: none;
+  font-size: .32rem;
+  border-radius: 0;
+}
+
+.noTabPageContent .searchPage .searchMsg {
+  position: fixed;
+  top: 1rem;
+}
+
+.noTabPageContent .searchPage .searchMsg .searchItemWrap {
+  width: 100%;
+  height: auto;
+  padding: 0 .2rem .2rem;
+  background: #fff;
+}
+
+.noTabPageContent .searchPage .searchMsg .searchItemWrap .title {
+  width: 100%;
+  height: .7rem;
+  font-size: .3rem;
+  line-height: .7rem;
+}
+
+.noTabPageContent .searchPage .searchMsg .searchItemWrap .title i {
+  float: right;
+  font-size: .4rem;
+}
+
+.noTabPageContent .searchPage .searchMsg .listWrap {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.noTabPageContent .searchPage .searchMsg .listWrap .listItem {
+  display: inline-block;
+  white-space: nowrap;
+  cursor: pointer;
+  background-color: #fff;
+  border: 1px solid #dcdfe6;
+  text-align: center;
+  box-sizing: border-box;
+  outline: none;
+  font-weight: 500;
+  user-select: none;
+  padding: .16rem .24rem;
+  font-size: .28rem;
+  border-radius: .08rem;
+  margin: .05rem;
+}
+
+.noTabPageContent .searchPage .searchMsg .listWrap .active {
+  color: red;
+  border-color: red;
+}

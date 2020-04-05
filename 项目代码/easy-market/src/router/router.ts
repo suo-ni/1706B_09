@@ -7,6 +7,8 @@ import MainPage from '../views/MainPage'
 import GoodsDetailPage from '../views/GoodsDetailPage'
 import TopicDetailPage from '../views/TopicDetailPage'
 import categorys from '../views/categorys'
+import Address from '../views/AddressPage'
+import BrandDetail from '../views/BrandDetailPage'
 
 // 引入二级路由
 import IndexPage from '../views/main/IndexPage'
@@ -30,8 +32,14 @@ let config = {
         path: '/topicDetail/:id',
         component: TopicDetailPage
     },{
+        path: '/brandDetail/:id',
+        component: BrandDetail
+    },{
         path:"/typeDetail/:id",
         component:categorys
+    },{
+        path:"/address",
+        component:Address
     }, {
         path: '/main',
         component: MainPage,

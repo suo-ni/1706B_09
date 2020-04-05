@@ -2,6 +2,8 @@ import React,{ useEffect } from 'react'
 import {connect} from "react-redux"
 import {RouteComponentProps} from "react-router-dom"
 import {TypeDetailAction} from '../store/actions/type'
+import style from "../css/type.module.scss"
+
 
 interface StateType {
     typeDetail: {
@@ -20,7 +22,25 @@ let Categorys: React.FC<StateType & DispatchType & RouteComponentProps<{ id: str
         console.log(id);
         props.getTypeDetail(id);
     }, []);
-    return null;
+
+    let go = () => {
+        props.history.go(-1)
+    }
+
+    return <>
+        <div className={style.noTabPageContent}>
+            <div className={style.header}>
+                <div className={style.left} onClick={go}>
+                    <i className="iconfont icon-xiangzuo"></i>
+                </div>
+                <div className={style.right}></div>
+                <div className={style.title}>奇趣分类</div>
+            </div>
+            <div className={style.tabWrap}>
+                
+            </div>
+        </div>
+    </>
 }
 
 const mapStateToProps = (state: any) => {

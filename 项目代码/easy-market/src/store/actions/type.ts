@@ -28,7 +28,6 @@ export let tabAction = (id: any) => {
 export let TypeDetailAction = (id: string) => {
     return async (dispatch: Function) => {
         let data = await getTypeDetail(id);
-        console.log(data);
         if (data) {
             dispatch({
                 type: 'GET_TYPEDETAIL',

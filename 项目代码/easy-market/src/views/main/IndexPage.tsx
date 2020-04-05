@@ -55,6 +55,13 @@ let TopicDetailPage: React.FC<StateType & DispatchType & RouteComponentProps> = 
         })
     }, []);
 
+    let banner = (id:any)=>{
+        props.history.push(`/typeDetail/${id}`)
+    }
+
+    let getDetail = (id:any)=>{
+        props.history.push(`/brandDetail/${id}`)
+    }
     return <>
 
         <div className="swiper-container">
@@ -73,7 +80,7 @@ let TopicDetailPage: React.FC<StateType & DispatchType & RouteComponentProps> = 
         <div className={style.channelWrap}>
             {
                 props.channel.map(item => (
-                    <a key={item.id}>
+                    <a key={item.id} onClick={()=>banner(item.id)}>
                         <img src={item.icon_url} />
                         <div>{item.name}</div>
                     </a>
@@ -86,7 +93,7 @@ let TopicDetailPage: React.FC<StateType & DispatchType & RouteComponentProps> = 
             <div className={style.brandWrap}>
                 {
                     props.brandList.map(item => (
-                        <div className={style.brandItem} key={item.id}>
+                        <div className={style.brandItem} key={item.id} onClick={()=>getDetail(item.id)}>
                             <div className={style.brandItemName}>{item.name}</div>
                             <div className={style.brandItemMinPrice}>{item.floor_price}元起</div>
                             <img src={item.new_pic_url} alt="" />

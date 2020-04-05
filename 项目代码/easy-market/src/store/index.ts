@@ -7,13 +7,17 @@ import home from './reducers/home'
 import Login from './reducers/login'
 import topic from './reducers/topic'
 import type from './reducers/type'
+import goods from './reducers/goods'
+import branDetail from './reducers/branDetail'
 
 // 连接子reducer
 let reducers = combineReducers({
     home,
     Login,
     topic,
-    type
+    type,
+    goods,
+    branDetail
 })
 
 let store = createStore(reducers, applyMiddleware(ReduxThunk, ReduxLogger))

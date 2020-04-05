@@ -1,0 +1,28 @@
+.tabPageContent{
+    min-height: 100%;
+    .cart{
+        padding: .8rem 0 1.1rem;
+        .serviceList{
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: .8rem;
+            background: #f4f4f4;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+        }
+        .serviceList div{
+            flex: 1;
+            color: #666;
+            font-size: .24rem;
+            text-align: center;
+        }
+        .serviceList div span{
+            color: red;
+            margin-right: .15rem;
+            font-size: .3rem;
+        }
+    }
+}

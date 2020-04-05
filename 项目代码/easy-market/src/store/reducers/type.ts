@@ -14,7 +14,7 @@ function typeReudcer(state: any, action: ActionType){
         case 'GET_TAB_LIST':
             return { ...state, currentCategory: action.payload.currentCategory };
         case 'GET_TYPEDETAIL':
-            return {...state, typeDetail: action.payload.currentCategory}
+            return {...state, typeDetail: action.payload}
         default:
             return state;
     }

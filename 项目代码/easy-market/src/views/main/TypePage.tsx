@@ -54,10 +54,14 @@ let TypePage: React.FC<DisptachType & StateType & RouteComponentProps> = (props)
         props.history.push(`/typeDetail/${id}`)
     }
 
+    let goods = ()=>{
+        props.history.push('/goodsDetail')
+    }
+
     return (
         <div className={style.tabPageContent}>
             <div className={style.searchWrap}>
-                <div className={style.searchInput}>
+                <div className={style.searchInput} onClick={goods}>
                     <span>搜索商品，共239款好物</span>
                 </div>
             </div>
