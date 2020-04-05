@@ -36,7 +36,9 @@ let TopicDetailPage: React.FC<StateType & DispatchType & RouteComponentProps<{ i
             <div className="tabWrap">
                 <div className="tabs">
                     <div className="tab_bar_wrap">
-                        {props.detail.name}
+                        {/* {props.detail.map((item) => {
+                            
+                        })} */}
                     </div>
                     <div className="tab_content_wrap">
 

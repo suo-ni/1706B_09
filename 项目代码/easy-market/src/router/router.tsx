@@ -6,6 +6,10 @@ import LoginPage from '../views/LoginPage'
 import FavorPage from '../views/FavorPage'
 import MainPage from '../views/MainPage'
 import GoodsDetailPage from '../views/GoodsDetailPage'
+import TopicDetailPage from '../views/TopicDetailPage'
+import BrandDetailPage from '../views/BrandDetailPage'
+import AddressPage from '../views/AddressPage'
+import FavorPage from '../views/FavorPage'
 
 // 引入二级路由
 import IndexPage from '../views/main/IndexPage'
@@ -13,8 +17,7 @@ import CartPage from '../views/main/CartPage'
 import TopicPage from '../views/main/TopicPage'
 import TypePage from '../views/main/TypePage'
 import MyPage from '../views/main/MyPage'
-import TopicDetailPage from '../views/TopicDetailPage'
-import BrandDetailPage from '../views/BrandDetailPage'
+
 
 let config = {
     routes: [{
@@ -34,6 +37,14 @@ let config = {
     {
         path: '/branddetail/:id',
         component: BrandDetailPage
+    },
+    {
+        path: '/address',
+        component: AddressPage
+    },
+    {
+        path: '/favor',
+        component: FavorPage
     },
      {
         path: '/main',
