@@ -57,7 +57,6 @@ let TypePage: React.FC<StateType & DispatchType & RouteComponentProps> = props =
     let goTypeDetail = (e: React.MouseEvent<HTMLImageElement>) => {
         let id = e.currentTarget.dataset.id
         props.history.push(`/branddetail/${id}`)
-        console.log(id)
     }
 
     // useEffect(() => {

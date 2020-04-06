@@ -10,10 +10,10 @@ const axios = Axios.create({
 
 axios.interceptors.request.use(function (config) {
     // Do something before request is sent
-    // if(getToken()) {
-    //   config.headers[]
-    // }
-    return config;
+    if(getToken()) {
+      config.headers['x-nideshop-token'] = getToken()
+    }
+    return config
   }, function (error) {
     // Do something with request error
     Toast.info(error.toString());

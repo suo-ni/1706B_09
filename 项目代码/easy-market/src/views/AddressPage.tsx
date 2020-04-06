@@ -1,17 +1,24 @@
-import React, {useEffect} from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { AddressAction } from '../store/actions/address'
+import { RouteComponentProps } from 'react-router'
+import { Item } from 'rc-menu';
 
 interface StateType {
-    
+    list: Array<{
+        [key: string]: number | string
+    }>
 }
 
 interface DispatchType {
-    getAddress:() => void
+    getAddress: () => void
 }
 
-let TopicDetailPage: React.FC<DispatchType> = props=>{
-    console.log(props)
+let TopicDetailPage: React.FC<StateType & DispatchType & RouteComponentProps> = props => {
+    let goAdd = () => {
+        props.history.push('/addaddress')
+    }
+    console.log(props.list)
     useEffect(() => {
         props.getAddress()
     }, [])
@@ -26,20 +33,24 @@ let TopicDetailPage: React.FC<DispatchType> = props=>{
             </div>
             <div className="addressList">
                 <div className="addressItem">
-                    <div className="addressMsg">
-                        <div className="concatName">吴世勋</div>
-                        <div className="addressDetail">
-                            <div className="concatPhone">17335145023</div>
-                            <div className="concatAddress">韩国首尔市</div>
-                            <div className="concatAddress">韩国首尔市明洞</div>
-                        </div>
-                        <div className="deleteAddress">
-
-                        </div>
-                    </div>
+                    {
+                        props.list.map((item, index) => {
+                            return <div key={index} className="addressMsg">
+                                <div className="concatName">{item.name}</div>
+                                <div className="addressDetail">
+                                    <div className="concatPhone">{item.mobile}</div>
+                                    <div className="concatAddress">{item.city_name}</div>
+                                    <div className="concatAddress">{item.full_region}</div>
+                                </div>
+                                <div className="deleteAddress">
+                                    <i className="iconfont icon-shanchu"></i>
+                                </div>
+                            </div>
+                        })
+                    }
                 </div>
             </div>
-            <div className="addAddress">
+            <div onClick={goAdd} className="addAddress">
                 <a href="#">
                     <span>新建地址</span>
                 </a>
@@ -62,4 +73,4 @@ const mapDispatchToProps = (dispatch: Function) => {
     }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(TopicDetailPage);
+export default connect(mapStateToProps, mapDispatchToProps)(TopicDetailPage);

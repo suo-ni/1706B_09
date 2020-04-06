@@ -34,6 +34,13 @@
       "unicode_decimal": 58891
     },
     {
+      "icon_id": "3630081",
+      "name": "向右",
+      "font_class": "arr-right",
+      "unicode": "e502",
+      "unicode_decimal": 58626
+    },
+    {
       "icon_id": "3982145",
       "name": "邀请返利",
       "font_class": "yaoqingfanli",
@@ -144,6 +151,13 @@
       "font_class": "youhuiquan",
       "unicode": "e653",
       "unicode_decimal": 58963
+    },
+    {
+      "icon_id": "13816487",
+      "name": "删 除",
+      "font_class": "shanchu",
+      "unicode": "e6ce",
+      "unicode_decimal": 59086
     }
   ]
 }

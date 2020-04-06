@@ -7,7 +7,9 @@ let TopicDetailPage: React.FC<RouteComponentProps & PropType> = props=>{
     let address = () => {
         props.history.push('/address')
     }
-    
+    let onFavor = () => {
+        props.history.push('/favor')
+    }
 
     return <div className="tabPageContent">
         <div id="minePage">
@@ -20,7 +22,7 @@ let TopicDetailPage: React.FC<RouteComponentProps & PropType> = props=>{
                     <div>普通用户</div>
                 </div>
             </div>
-            <div className="userPower">
+            <div onClick={onFavor} className="userPower">
                 <div className="div">
                     <i id="icon" className="iconfont icon-wodeshoucang"></i>
                     <div>我的收藏</div>

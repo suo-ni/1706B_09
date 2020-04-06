@@ -13,12 +13,18 @@ import topic from './reducers/topic'
 import TypeList from './reducers/TypeList'
 //地址管理
 import address from './reducers/address'
+//收藏
+import favor from './reducers/favor'
+//商品详情
+import goodsDetail from './reducers/goodsDetail'
 let reducers = combineReducers({
     home,
     login,
     topic,
     TypeList,
-    address
+    address,
+    favor,
+    goodsDetail
 })
 
 

@@ -17,7 +17,8 @@ html,body, #root {
   flex: 1;
   overflow: auto;
 }
-.swiper-container {
+
+  .index_swiper {
     width: 100%;
     height: 4rem;
     background: blue;
@@ -35,6 +36,25 @@ html,body, #root {
         
     }
   }
+
+  .slider {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 375px;
+    box-sizing: border-box;
+    visibility: visible;
+    background: red;
+    // .slider_frame{
+    //   width: 100%;
+    //   height: 100%;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    // }
+  }
+
 .channelWrap{
     width: 100%;
     height: 1.4rem;
@@ -771,6 +791,43 @@ html,body, #root {
       box-shadow: 0 0.04rem 0.08rem 0 rgba(0,0,0,.12), 0 0 6px 0 rgba(0,0,0,.04);
       z-index: 10;
     }
+    .addressList {
+      .addressItem {
+        width: 100%;
+        height: 80px;
+        background: #fff;
+        border-bottom: 1px solid #dcdcdc;
+        position: relative;
+        .addressMsg {
+          position: absolute;
+          left: 15px;
+          right: 5px;
+          top: 5px;
+          bottom: 5px;
+          width: auto;
+          height: auto;
+          display: flex;
+          .concatName {
+            width: 4em;
+            height: 33.333%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ff9500
+          }
+          .addressDetail {
+            flex: 1;
+          }
+          .deleteAddress {
+            width: 40px;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+        }
+      }
+    }
     // .header, .header>div {
     //   display: flex;
     //   justify-content: center;
@@ -796,30 +853,67 @@ html,body, #root {
   }
 }
 
-.main_footer {
-    width: 100%;
-    height: 1rem;
-    font-size: .24rem;
-    line-height: .4rem;
-    display: flex;
-    align-items: center;
-    position: sticky;
-    position: fixed;
-    bottom: 0;
-    justify-content: space-around;
-    background: #fff;
-    .tabItem {
-      width: 20%;
-      height: 100%;
-      font-weight: bolder;
-      color: #000;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-around;
+
+//新登地址
+.noTabPageContent {
+  padding-top: 1.04rem;
+  min-height: 100%;
+  .addressPage {
+    // padding-bottom: 1rem;
+  }
+}
+
+// .main_footer {
+//     width: 100%;
+//     height: 1rem;
+//     font-size: .24rem;
+//     line-height: .4rem;
+//     display: flex;
+//     align-items: center;
+//     position: sticky;
+//     position: fixed;
+//     bottom: 0;
+//     justify-content: space-around;
+//     background: #fff;
+//     .tabItem {
+//       width: 20%;
+//       height: 100%;
+//       font-weight: bolder;
+//       color: #000;
+//       flex: 1;
+//       display: flex;
+//       flex-direction: column;
+//       align-items: center;
+//       justify-content: space-around;
+//     }
+//     .active {
+//       color: #2196f3;
+//     }
+// }
+.footer{
+  height: 1rem;    
+  line-height: 1rem;
+  display: flex;
+  a{
+    flex: 1;
+    color: #000;
+    font-size: .28rem;
+    text-align: center;
+    .itemIcon{
+      line-height: .55rem;
+      text-align: center;
+      font-size: .44rem;
+      transition: all .5s ease-in-out;
     }
-    .active {
-      color: #2196f3;
+    .itemName{
+      height: 35%;
+      text-align: center;
+      font-size: .24rem;
+      line-height: .4rem;
+      transition: all .5s;
     }
+  }
+  .active{
+    color: #2196f3 !important;
+  }
 }

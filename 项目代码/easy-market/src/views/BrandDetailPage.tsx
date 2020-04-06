@@ -1,67 +1,4 @@
-// import React, { useEffect } from 'react'
-// import { RouteComponentProps } from 'react-router'
-// import { connect } from 'react-redux'
-// import { typeDetailAction } from '../store/actions/TypeList'
 
-// interface StateType {
-//     detail: {
-//             banner_url: string,
-//             front_desc: string,
-//             front_name: string,
-//             [key: string]: string
-//     }
-// }
-
-// interface DispatchType {
-//     TypeDetail: (id: string) => void
-// }
-
-// let TopicDetailPage: React.FC<StateType & DispatchType & RouteComponentProps<{ id: string }>> = props => {
-//     // console.log(props.detail)
-//     useEffect(() => {
-//         let id = props.match.params.id
-//         props.TypeDetail(id)
-//     }, [])
-//     return <>
-//         <div className="noTabPageContent">
-//             <div className="header">
-//                 <div className="left">
-//                     <i className="iconfont icon-fanhui"></i>
-//                 </div>
-//                 <div className="title">
-//                     奇趣分类
-//                 </div>
-//                 <div className="right"></div>
-//             </div>
-//             <div className="tabWrap">
-//                 <div className="tabs">
-//                     <div className="tab_bar_wrap">
-//                         {/* {props.detail.map((item) => {
-                            
-//                         })} */}
-//                     </div>
-//                     <div className="tab_content_wrap">
-
-//                     </div>
-//                 </div>
-//             </div>
-//         </div>
-//     </>
-// }
-
-// const mapStateToProps = (state: any) => {
-//     return { detail: state.TypeList.detail }
-// }
-
-// const mapDispatchToProps = (dispatch: Function) => {
-//     return {
-//         TypeDetail: (id: string) => {
-//             dispatch(typeDetailAction(id))
-//         }
-//     }
-// }
-
-// export default connect(mapStateToProps, mapDispatchToProps)(TopicDetailPage);
 
 
 import React, { useEffect, useState } from 'react';
@@ -92,18 +29,12 @@ interface stateType {
 
 
 let Categorys: React.FC<dispatchType & stateType & RouteComponentProps<{ id: string }>> = (props) => {
-    console.log(props.detailList)
-  // const tabs = [
-  //   { title: '灯具' },
-  //   { title: '被罩' },
-  //   { title: '灯泡' },
-  //   { title: '点灯' },
-  //   { title: '火药' },
-  //   { title: '6th Tab' },
-  //   { title: '7th Tab' },
-  //   { title: '8th Tab' },
-  //   { title: '9th Tab' },
-  // ];
+console.log(props)
+    let onGoodsDetail = (e: React.MouseEvent<HTMLAnchorElement>) => {
+      let id = e.currentTarget.dataset.id
+      console.log(id)
+      props.history.push(`/goodsDetail/${id}`)
+    }
 
   let [tabs, setTabs] = useState([]);
   let [ind, setInd] = useState(0)
@@ -162,7 +93,7 @@ let Categorys: React.FC<dispatchType & stateType & RouteComponentProps<{ id: str
         {
           props.detailList.map((item) => {
             return (
-              <a href={"/goods/" + item.id} className={styles.goodsItem} key={item.id}>
+              <a onClick={onGoodsDetail} data-id={item.id}  className={styles.goodsItem} key={item.id}>
                 <div className={styles.goodsItemImg}>
                   <img src={item.list_pic_url + ''} alt="" />
                 </div>
@@ -179,7 +110,6 @@ let Categorys: React.FC<dispatchType & stateType & RouteComponentProps<{ id: str
 }
 
 const mapStateToProps = (state: any) => {
-    console.log(state)
   return {
     detailNav: state.TypeList.detailNav,
     detailList: state.TypeList.detailList
