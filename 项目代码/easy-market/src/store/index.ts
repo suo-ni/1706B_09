@@ -9,6 +9,8 @@ import topic from './reducers/topic'
 import type from './reducers/type'
 import goods from './reducers/goods'
 import branDetail from './reducers/branDetail'
+import collect from './reducers/collect';
+import goodsDetail from './reducers/goodsDetail'
 
 // 连接子reducer
 let reducers = combineReducers({
@@ -17,7 +19,9 @@ let reducers = combineReducers({
     topic,
     type,
     goods,
-    branDetail
+    branDetail,
+    collect,
+    goodsDetail
 })
 
 let store = createStore(reducers, applyMiddleware(ReduxThunk, ReduxLogger))

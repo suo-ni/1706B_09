@@ -9,6 +9,7 @@ import TopicDetailPage from '../views/TopicDetailPage'
 import categorys from '../views/categorys'
 import Address from '../views/AddressPage'
 import BrandDetail from '../views/BrandDetailPage'
+import Collect from '../views/collect'
 
 // 引入二级路由
 import IndexPage from '../views/main/IndexPage'
@@ -23,7 +24,7 @@ let config = {
         path: '/login',
         component: LoginPage
     }, {
-        path: '/favor',
+        path: '/goods/:id',
         component: FavorPage
     }, {
         path: '/goodsDetail',
@@ -40,7 +41,10 @@ let config = {
     },{
         path:"/address",
         component:Address
-    }, {
+    },{
+        path: "/collect",
+        component: Collect
+      }, {
         path: '/main',
         component: MainPage,
         redirect: '/main/index',

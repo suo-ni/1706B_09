@@ -8,6 +8,10 @@ let MyPage: React.FC<RouteComponentProps> = props=>{
     let address = ()=>{
         props.history.push(`/address`)
     }
+
+    let collect = ()=>{
+        props.history.push(`/collect`)
+    }
     return <>
         <div className={style.tabPageContent}>
             <div className={style.minePage}>
@@ -19,7 +23,7 @@ let MyPage: React.FC<RouteComponentProps> = props=>{
                     </div>
                 </div>
                 <div className={style.userPower}>
-                    <div>
+                    <div onClick={collect}>
                         <i className="iconfont icon-pingfen"></i>
                         <div>我的收藏</div>
                     </div>

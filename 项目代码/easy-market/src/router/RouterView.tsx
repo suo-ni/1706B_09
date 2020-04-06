@@ -13,7 +13,7 @@ let RouterView: React.FC<PropType> = props=>{
             }            
             return <Route key={item.path} path={item.path} render={renderProps=>{
                 let {match: {path}} = renderProps;
-                if (path !== '/login' && path !== '/main' && !getToken()){
+                if (path !== '/login' && path !== '/main' && !getToken() && (path == "/main/my")){
                     return <Redirect to={`/login?redirect=${encodeURIComponent(path)}`}/>
                 }
                 if (item.children){

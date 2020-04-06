@@ -1,0 +1,315 @@
+.noTabPageContent {
+  padding-top: 1.04rem;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: initial;
+  font-weight: 400;
+}
+
+.noTabPageContent .goodsPage {
+  padding-bottom: 1rem;
+}
+
+.noTabPageContent .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1rem;
+  background: #fff;
+  box-shadow: 0 0.04rem 0.08rem 0 rgba(0, 0, 0, 0.12), 0 0 6px 0 rgba(0, 0, 0, 0.04);
+  z-index: 10;
+}
+
+.noTabPageContent .header, .noTabPageContent .header > div {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.noTabPageContent .header .left, .noTabPageContent .header .right {
+  width: .6rem;
+}
+
+.noTabPageContent .header .title {
+  flex: 1 1;
+  font-size: .32rem;
+  font-weight: 400;
+}
+
+.noTabPageContent .slider {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 375px;
+  box-sizing: border-box;
+  visibility: visible;
+  background: red;
+}
+
+.noTabPageContent .goodsPage .serviceList {
+  height: .8rem;
+  background: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+}
+
+.noTabPageContent .goodsPage .serviceList li {
+  flex: 1 1;
+  color: #666;
+  font-size: .24rem;
+  text-align: center;
+}
+
+.noTabPageContent .goodsPage .serviceList li span {
+  color: red;
+  margin-right: .15rem;
+  font-size: .3rem;
+}
+
+.noTabPageContent .goodsPage .goodsMsgWrap {
+  padding: .4rem;
+  background: #fff;
+}
+
+.noTabPageContent .goodsPage .goodsMsgWrap .goodsNameTitle {
+  font-size: .4rem;
+  text-align: center;
+  padding-bottom: .2rem;
+}
+
+.noTabPageContent .goodsPage .goodsMsgWrap .goodsNameSubTitle {
+  font-size: .3rem;
+  color: #444;
+  text-align: center;
+  padding-bottom: .1rem;
+}
+
+.noTabPageContent .goodsPage .goodsMsgWrap .goodsPriceTitle {
+  font-size: .4rem;
+  color: red;
+  text-align: center;
+  line-height: 1rem;
+}
+
+.noTabPageContent .goodsSize {
+  margin-top: .02rem;
+  height: 1rem;
+  padding: 0 .4rem;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.noTabPageContent .goodsSize .goodsSize div:first-child {
+  flex: 1 1;
+  text-align: left;
+  color: #2196f3;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.noTabPageContent .goodsSize .goodsSize div:nth-child(2), .noTabPageContent .goodsSize .goodsPage .goodsSize div:nth-child(3) {
+  width: auto;
+  padding: 0 .1rem;
+  text-align: right;
+}
+
+.noTabPageContent .goodsSize .goodsSize div:nth-child(3) {
+  width: auto;
+  padding: 0 .1rem;
+  text-align: right;
+}
+
+.noTabPageContent .goodsAttribute {
+  margin-top: .2rem;
+  padding: .4rem;
+  background: #fff;
+}
+
+.noTabPageContent .goodsAttribute .goodsAttributeLine {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #2196f3;
+  padding: .1rem 0;
+}
+
+.noTabPageContent .goodsAttribute .goodsAttributeList .goodsAttributeItem {
+  display: flex;
+  align-items: center;
+  line-height: .8rem;
+  background: #dcdfe6;
+  margin-top: .1rem;
+}
+
+.noTabPageContent .goodsAttribute .goodsAttributeList .goodsAttributeItem .attributeLabel {
+  width: 2rem;
+  color: grey;
+  padding: 0 .1rem;
+  font-size: .32rem;
+  text-align: center;
+}
+
+.noTabPageContent .goodsAttribute .goodsAttributeList .goodsAttributeItem .attributeContent {
+  flex: 1 1;
+  font-size: .3rem;
+  line-height: .6rem;
+  padding: 0 .1rem;
+}
+
+.noTabPageContent .topicDetailImg {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: initial;
+  font-weight: 400;
+}
+
+.noTabPageContent .topicDetailImg .topicDetailImg img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.noTabPageContent .goodsAttribute {
+  margin-top: .2rem;
+  padding: .4rem;
+  background: #fff;
+}
+
+.noTabPageContent .goodsAttribute .goodsAttributeLine {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #2196f3;
+  padding: .1rem 0;
+}
+
+.noTabPageContent .goodsAttribute .problemWrap {
+  margin-bottom: .2rem;
+}
+
+.noTabPageContent .goodsAttribute .problemWrap .problemLabel {
+  font-size: .32rem;
+  line-height: .6rem;
+}
+
+.noTabPageContent .goodsAttribute .problemWrap .problemLabel span {
+  color: red;
+  margin-right: .1rem;
+}
+
+.noTabPageContent .goodsAttribute .problemWrap .problemContent {
+  font-size: .3rem;
+  line-height: .5rem;
+  color: grey;
+}
+
+.noTabPageContent .goodsAttribute {
+  margin-top: .2rem;
+  padding: .4rem;
+  background: #fff;
+}
+
+.noTabPageContent .goodsList {
+  width: auto;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.noTabPageContent .goodsList .goodsItem {
+  width: 50%;
+  background: #fff;
+  height: auto;
+  padding: .2rem;
+  position: relative;
+}
+
+.noTabPageContent .goodsList .goodsItem .goodsItemImg {
+  width: 100%;
+  min-height: 2rem;
+  height: auto;
+}
+
+.noTabPageContent .goodsList .goodsItem .goodsItemImg img {
+  width: 100%;
+  height: auto;
+}
+
+.noTabPageContent .goodsList .goodsItem .goodsItemName, .noTabPageContent .goodsList .goodsItem .goodsList .goodsItem .goodsItemPrice {
+  text-align: center;
+  font-size: .28rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.noTabPageContent .goodsList .goodsItem .goodsList .goodsItem .goodsItemPrice {
+  color: red;
+}
+
+.noTabPageContent .goodsPage .goodsPageDo {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: .98rem;
+  background: #fff;
+  box-shadow: 0 -3px 10px 0 rgba(0, 0, 0, 0.2);
+  display: flex;
+}
+
+.noTabPageContent .goodsPage .goodsPageDo .isLike {
+  width: 20%;
+  height: 100%;
+  line-height: .98rem;
+  font-size: .6rem;
+  text-align: center;
+  font-weight: bolder;
+}
+
+.noTabPageContent .goodsPage .goodsPageDo .cartNum {
+  width: 20%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #2196f3;
+}
+
+.noTabPageContent .goodsPage .goodsPageDo .cartNum i {
+  font-size: .45rem;
+  position: relative;
+}
+
+.noTabPageContent .goodsPage .goodsPageDo .addCart {
+  width: 30%;
+  height: 100%;
+  line-height: .98rem;
+  text-align: center;
+  font-size: .3rem;
+  color: #fff;
+  background: linear-gradient(90deg, #ff9500, #ff5e3a);
+}
+
+.noTabPageContent .goodsPage .goodsPageDo .payGoods {
+  width: 30%;
+  height: 100%;
+  line-height: .98rem;
+  text-align: center;
+  font-size: .3rem;
+  color: #fff;
+  background: linear-gradient(90deg, #1d62f0, #19d5fd);
+}
