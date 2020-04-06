@@ -1,0 +1,9 @@
+.my{
+ @include wh(100%,100%);
+}
+.header{
+  width: 100%;
+  height: 3rem;
+  background: #CAB17C;
+  font-size: .3rem;
+}
