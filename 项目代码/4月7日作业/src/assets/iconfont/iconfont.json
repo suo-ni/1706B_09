@@ -1,0 +1,72 @@
+{
+  "id": "1712362",
+  "name": "严选",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "5188101",
+      "name": "专题",
+      "font_class": "zhuanti",
+      "unicode": "e643",
+      "unicode_decimal": 58947
+    },
+    {
+      "icon_id": "5746486",
+      "name": "购物车",
+      "font_class": "cart_icon",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "6645067",
+      "name": "类目 品类 分类 类别",
+      "font_class": "leimupinleifenleileibie",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "7271433",
+      "name": "购物车",
+      "font_class": "gouwuche",
+      "unicode": "e66b",
+      "unicode_decimal": 58987
+    },
+    {
+      "icon_id": "7768245",
+      "name": "我 的",
+      "font_class": "wode",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "10111597",
+      "name": "首 页",
+      "font_class": "shouye",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "10445027",
+      "name": "类目 品类 分类 类别",
+      "font_class": "leimupinleifenleileibie1",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "11297986",
+      "name": "我 的",
+      "font_class": "wode1",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    },
+    {
+      "icon_id": "13654596",
+      "name": "首 页",
+      "font_class": "shouye1",
+      "unicode": "e613",
+      "unicode_decimal": 58899
+    }
+  ]
+}

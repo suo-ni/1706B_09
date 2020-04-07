@@ -1,0 +1,46 @@
+.type{
+  width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    .ipt{
+      height: 30px;
+      background: #ededed;
+      border: none;
+      outline: none;
+      padding-left: 30%;
+      border-radius:8px;
+    }
+    .main{
+      display: flex;
+      flex:1;
+      overflow: hidden;
+      .left{
+          flex:3;
+          height: 100%;
+          border-right: 0.02rem solid #ccc;
+          line-height: 50px; 
+          text-align:center; 
+          li{
+            list-style: none;
+            font-size: .3rem;
+            .active{
+              border-left: 1px solid skyblue;
+              color: skyblue;
+            }   
+          }
+       
+      }
+      .right{
+        flex: 7;
+        height: 100%;
+        overflow: auto;
+        img{
+          width: 100%;
+        }
+      }
+      
+  }
+  
+
+}
