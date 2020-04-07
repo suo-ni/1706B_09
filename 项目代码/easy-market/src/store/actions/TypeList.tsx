@@ -43,6 +43,7 @@ export let typeDetailAction = (id: string) => {
 export let classifyDetailAction = (id: string) => {
     return async (dispatch: Function) => {
       let res = await classifyDetail(id);
+      console.log(res,'nav')
       if (res) {
         dispatch({
           type: "GET_CLASSIFYDETAIL_LIST",

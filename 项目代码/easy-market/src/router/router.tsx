@@ -10,6 +10,7 @@ import TopicDetailPage from '../views/TopicDetailPage'
 import BrandDetailPage from '../views/BrandDetailPage'
 import AddressPage from '../views/AddressPage'
 import NewAddress from '../views/NewAddressPage'
+import GoodsSearchPage from '../views/GoodsSearchPage'
 
 
 // 引入二级路由
@@ -43,6 +44,10 @@ let config = {
     {
         path: '/branddetail/:id',
         component: BrandDetailPage
+    },
+    {
+        path: '/goodssearch',
+        component:GoodsSearchPage
     },
     {
         path: '/addaddress',

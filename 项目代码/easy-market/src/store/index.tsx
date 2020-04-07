@@ -17,6 +17,8 @@ import address from './reducers/address'
 import favor from './reducers/favor'
 //商品详情
 import goodsDetail from './reducers/goodsDetail'
+//搜索
+import goodsSearch from './reducers/goodsSearch'
 let reducers = combineReducers({
     home,
     login,
@@ -24,7 +26,8 @@ let reducers = combineReducers({
     TypeList,
     address,
     favor,
-    goodsDetail
+    goodsDetail,
+    goodsSearch
 })
 
 

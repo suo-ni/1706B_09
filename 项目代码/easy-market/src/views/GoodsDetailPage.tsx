@@ -10,18 +10,19 @@ interface StateType {
         image_url: string,
         [name: string]: string | number
     }>,
-    list:{
+    list: {
         [key: string]: string | number,
         attribute: any,
         gallery: any,
-        productList: any
+        productList: any,
+        issue: any
     }
 }
 interface DispatchType {
     toGoodsDetail: (id: string) => void
 }
 
-let TopicDetailPage: React.FC<DispatchType & StateType & RouteComponentProps<{id: string}>> = props => {
+let TopicDetailPage: React.FC<DispatchType & StateType & RouteComponentProps<{ id: string }>> = props => {
     useEffect(() => {
         new Swiper('.swiper-container', {
             autoplay: true,
@@ -43,16 +44,16 @@ let TopicDetailPage: React.FC<DispatchType & StateType & RouteComponentProps<{id
                 <div className={styles.right}></div>
             </div>
             <div className="swiper-container slider">
-            <div className="swiper-wrapper slider_frame">
-                {
-                    props.list.gallery && props.list.gallery.map((item: any) => {
-                        return <div key={item.id} className="swiper-slide">
-                            <img src={item.img_url} alt="" />
-                        </div>
-                    })
-                }
+                <div className="swiper-wrapper slider_frame">
+                    {
+                        props.list.gallery && props.list.gallery.map((item: any) => {
+                            return <div key={item.id} className="swiper-slide">
+                                <img src={item.img_url} alt="" />
+                            </div>
+                        })
+                    }
+                </div>
             </div>
-        </div>
             {/* <div className={styles.slider}>
                 <div className={styles.slider_frame}>
 
@@ -87,15 +88,15 @@ let TopicDetailPage: React.FC<DispatchType & StateType & RouteComponentProps<{id
                     -商品参数-
                 </div>
                 <div className={styles.goodsAttributeList}>
-                {/* {
+                    {/* {
                     console.log(props.list.attribute)
                 } */}
                     {
-                        props.list.attribute && props.list.attribute.map((item: any, index:number) => {
+                        props.list.attribute && props.list.attribute.map((item: any, index: number) => {
                             return <div key={index} className={styles.goodsAttributeItem}>
-                            <div className={styles.attributeLabel}>{item.name}</div>
-                            <div className={styles.attributeContent}>{item.value}</div>
-                        </div>
+                                <div className={styles.attributeLabel}>{item.name}</div>
+                                <div className={styles.attributeContent}>{item.value}</div>
+                            </div>
                         })
                     }
                 </div>
@@ -105,14 +106,19 @@ let TopicDetailPage: React.FC<DispatchType & StateType & RouteComponentProps<{id
             </div>
             <div className={styles.goodsAttribute}>
                 <div className={styles.goodsAttributeLine}>-常见问题-</div>
-                <div className={styles.problemWrap}>
-                    <div className={styles.problemLabel}>
-                        <span>√</span>购买运费如何收取？
-                    </div>
-                    <div className={styles.problemContent}>单笔订单金额（不含运费）满88元免邮费；不满88元，每单收取10元运费。
-(港澳台地区需满</div>
-                </div>
-                <div className={styles.problemWrap}>
+                {
+                    props.list.issue && props.list.issue.map((item: any) => {
+                        return <div className={styles.problemWrap}>
+                            <div className={styles.problemLabel}>
+                                <span>√</span>{item.question}
+                            </div>
+                            <div className={styles.problemContent}>{item.answer}
+    (港澳台地区需满</div>
+                        </div>
+                    })
+                }
+
+                {/* <div className={styles.problemWrap}>
                     <div className={styles.problemLabel}>
                         <span>√</span>如何申请退货？
                     </div>
@@ -123,7 +129,7 @@ let TopicDetailPage: React.FC<DispatchType & StateType & RouteComponentProps<{id
                         <span>√</span>如何开具发票？
                     </div>
                     <div className={styles.problemContent}>1.如需开具普通发票，请在下单时选择“我要开发票”并填写相关信息（APP仅限2.4.0及以</div>
-                </div>
+                </div> */}
             </div>
             <div className={styles.goodsAttribute}>
                 <div className={styles.goodsAttributeLine}>大家都在看</div>
@@ -131,68 +137,68 @@ let TopicDetailPage: React.FC<DispatchType & StateType & RouteComponentProps<{id
             <div className={styles.goodsList}>
                 <div className={styles.goodsList}>
                     {
-                        props.list.productList && props.list.productList.map((item: any) =>{
+                        props.list.productList && props.list.productList.map((item: any) => {
                             return <a href="#" className={styles.goodsItem}>
-                            <div className={styles.goodsItemImg}>
-                                <img className={styles.imgLazyload} src="http://yanxuan.nosdn.127.net/149dfa87a7324e184c5526ead81de9ad.png" alt=""/>
-                            </div>
-                            <div className={styles.goodsItemName}>日式和风懒人沙发</div>
-                            <div className={styles.goodsItemPrice}>￥599元</div>
-                        </a>
+                                <div className={styles.goodsItemImg}>
+                                    <img className={styles.imgLazyload} src="http://yanxuan.nosdn.127.net/149dfa87a7324e184c5526ead81de9ad.png" alt="" />
+                                </div>
+                                <div className={styles.goodsItemName}>日式和风懒人沙发</div>
+                                <div className={styles.goodsItemPrice}>￥599元</div>
+                            </a>
                         })
                     }
                     <a href="#" className={styles.goodsItem}>
                         <div className={styles.goodsItemImg}>
-                            <img className={styles.imgLazyload} src="http://yanxuan.nosdn.127.net/149dfa87a7324e184c5526ead81de9ad.png" alt=""/>
+                            <img className={styles.imgLazyload} src="http://yanxuan.nosdn.127.net/149dfa87a7324e184c5526ead81de9ad.png" alt="" />
                         </div>
                         <div className={styles.goodsItemName}>日式和风懒人沙发</div>
                         <div className={styles.goodsItemPrice}>￥599元</div>
                     </a>
                     <a href="#" className={styles.goodsItem}>
                         <div className={styles.goodsItemImg}>
-                            <img className={styles.imgLazyload} src="http://yanxuan.nosdn.127.net/149dfa87a7324e184c5526ead81de9ad.png" alt=""/>
+                            <img className={styles.imgLazyload} src="http://yanxuan.nosdn.127.net/149dfa87a7324e184c5526ead81de9ad.png" alt="" />
                         </div>
                         <div className={styles.goodsItemName}>日式和风懒人沙发</div>
                         <div className={styles.goodsItemPrice}>￥599元</div>
                     </a>
                     <a href="#" className={styles.goodsItem}>
                         <div className={styles.goodsItemImg}>
-                            <img className={styles.imgLazyload} src="http://yanxuan.nosdn.127.net/149dfa87a7324e184c5526ead81de9ad.png" alt=""/>
+                            <img className={styles.imgLazyload} src="http://yanxuan.nosdn.127.net/149dfa87a7324e184c5526ead81de9ad.png" alt="" />
                         </div>
                         <div className={styles.goodsItemName}>日式和风懒人沙发</div>
                         <div className={styles.goodsItemPrice}>￥599元</div>
                     </a>
                     <a href="#" className={styles.goodsItem}>
                         <div className={styles.goodsItemImg}>
-                            <img className={styles.imgLazyload} src="http://yanxuan.nosdn.127.net/149dfa87a7324e184c5526ead81de9ad.png" alt=""/>
+                            <img className={styles.imgLazyload} src="http://yanxuan.nosdn.127.net/149dfa87a7324e184c5526ead81de9ad.png" alt="" />
                         </div>
                         <div className={styles.goodsItemName}>日式和风懒人沙发</div>
                         <div className={styles.goodsItemPrice}>￥599元</div>
                     </a>
                     <a href="#" className={styles.goodsItem}>
                         <div className={styles.goodsItemImg}>
-                            <img className={styles.imgLazyload} src="http://yanxuan.nosdn.127.net/149dfa87a7324e184c5526ead81de9ad.png" alt=""/>
+                            <img className={styles.imgLazyload} src="http://yanxuan.nosdn.127.net/149dfa87a7324e184c5526ead81de9ad.png" alt="" />
                         </div>
                         <div className={styles.goodsItemName}>日式和风懒人沙发</div>
                         <div className={styles.goodsItemPrice}>￥599元</div>
                     </a>
                     <a href="#" className={styles.goodsItem}>
                         <div className={styles.goodsItemImg}>
-                            <img className={styles.imgLazyload} src="http://yanxuan.nosdn.127.net/149dfa87a7324e184c5526ead81de9ad.png" alt=""/>
+                            <img className={styles.imgLazyload} src="http://yanxuan.nosdn.127.net/149dfa87a7324e184c5526ead81de9ad.png" alt="" />
                         </div>
                         <div className={styles.goodsItemName}>日式和风懒人沙发</div>
                         <div className={styles.goodsItemPrice}>￥599元</div>
                     </a>
                     <a href="#" className={styles.goodsItem}>
                         <div className={styles.goodsItemImg}>
-                            <img className={styles.imgLazyload} src="http://yanxuan.nosdn.127.net/149dfa87a7324e184c5526ead81de9ad.png" alt=""/>
+                            <img className={styles.imgLazyload} src="http://yanxuan.nosdn.127.net/149dfa87a7324e184c5526ead81de9ad.png" alt="" />
                         </div>
                         <div className={styles.goodsItemName}>日式和风懒人沙发</div>
                         <div className={styles.goodsItemPrice}>￥599元</div>
                     </a>
                     <a href="#" className={styles.goodsItem}>
                         <div className={styles.goodsItemImg}>
-                            <img className={styles.imgLazyload} src="http://yanxuan.nosdn.127.net/149dfa87a7324e184c5526ead81de9ad.png" alt=""/>
+                            <img className={styles.imgLazyload} src="http://yanxuan.nosdn.127.net/149dfa87a7324e184c5526ead81de9ad.png" alt="" />
                         </div>
                         <div className={styles.goodsItemName}>日式和风懒人沙发</div>
                         <div className={styles.goodsItemPrice}>￥599元</div>
@@ -220,7 +226,7 @@ const mapStateToProps = (state: any) => {
 
 const mapDispatchToProps = (dispatch: Function) => {
     return {
-        toGoodsDetail : (id: string) => {
+        toGoodsDetail: (id: string) => {
             dispatch(GoodsDetailAction(id))
         }
     }

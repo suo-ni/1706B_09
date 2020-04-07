@@ -27,7 +27,9 @@ let Collect: React.FC<dispatchType & stateType> = (props) => {
     let itemList = document.querySelectorAll(".item");
     if (itemList.length > 0) {
       Array.from(itemList).forEach(item => {
+        console.log(item)
         myTouch.swiper(item, "left", () => {
+          console.log(111)
           item.classList.add("l");
           item.classList.remove("r");
         })

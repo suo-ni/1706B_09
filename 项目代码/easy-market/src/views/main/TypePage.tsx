@@ -59,6 +59,10 @@ let TypePage: React.FC<StateType & DispatchType & RouteComponentProps> = props =
         props.history.push(`/branddetail/${id}`)
     }
 
+    let goSearch = () => {
+        props.history.push('/goodssearch')
+    }
+
     // useEffect(() => {
     //     if (props.list.length > 0) {
     //       props.getContentItem(props.list[ind].id);
@@ -73,7 +77,7 @@ let TypePage: React.FC<StateType & DispatchType & RouteComponentProps> = props =
 
     return <div className="tabPageContent">
         <div className="searchWrap">
-            <div className="searchInput">
+            <div onClick={goSearch} className="searchInput">
                 <span>搜索商品，共239款好物</span>
             </div>
         </div>

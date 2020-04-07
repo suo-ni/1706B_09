@@ -1,13 +1,13 @@
 import { ActionType } from '../../utils/interface'
 
 const initval = {
-    list: []
+    data: []
 }
 
 function addressreducer(state:any, action: ActionType) {
     switch(action.type) {
         case 'GET_ADDRESS':
-            return {...state, list: [...action.payload]}
+            return {...state, data: [...action.payload]}
         default: return state
     }
 }

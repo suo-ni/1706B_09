@@ -132,6 +132,13 @@
       "unicode_decimal": 58898
     },
     {
+      "icon_id": "10955836",
+      "name": "sou-suo",
+      "font_class": "search",
+      "unicode": "e501",
+      "unicode_decimal": 58625
+    },
+    {
       "icon_id": "12760678",
       "name": "专题",
       "font_class": "zhuanti1",
