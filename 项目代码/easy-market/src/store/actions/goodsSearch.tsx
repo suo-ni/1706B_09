@@ -1,8 +1,8 @@
 import { getGoodsSearch } from '../../api/goodsSearch'
 
-export let GoodsSearchAction = () =>{
+export let GoodsSearchAction = (keyword:string) =>{
     return async(dispatch: Function) => {
-        let data = await getGoodsSearch()
+        let data = await getGoodsSearch(keyword)
         console.log(data, '搜索')
         if(data) {
             dispatch({

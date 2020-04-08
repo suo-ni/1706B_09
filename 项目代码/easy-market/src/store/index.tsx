@@ -19,6 +19,8 @@ import favor from './reducers/favor'
 import goodsDetail from './reducers/goodsDetail'
 //搜索
 import goodsSearch from './reducers/goodsSearch'
+// 购物车页面渲染
+import cart from './reducers/cart'
 let reducers = combineReducers({
     home,
     login,
@@ -27,7 +29,8 @@ let reducers = combineReducers({
     address,
     favor,
     goodsDetail,
-    goodsSearch
+    goodsSearch,
+    cart
 })
 
 

@@ -33,7 +33,8 @@ let config = {
     {
         path: '/favor',
         component: FavorPage
-    }, {
+    },
+    {
         path: '/goodsDetail/:id',
         component: GoodsDetailPage
     },

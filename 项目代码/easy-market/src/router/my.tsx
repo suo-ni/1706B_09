@@ -1,24 +1,10 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import {Switch, Route, Redirect} from 'react-router-dom'
 import {PropType} from '../utils/interface'
 import {getToken} from '../utils/index'
 import { connect } from 'react-redux'
-import {userInfoAction} from '../store/actions/login'
 
-interface StateType{
-    info:{}
-}
-interface DispatchType{
-    getUserInfo:()=>void
-}
-// let RouterView:React.FC<PropType & StateType & DispatchType>=props=>{
-//     useEffect(() => {
-//         props.getUserInfo()
-//     }, [])
-let RouterView: React.FC<StateType & DispatchType & PropType> = props=>{
-    useEffect(() => {
-                props.getUserInfo()
-            }, [])
+let RouterView: React.FC< PropType> = props=>{
     return <Switch>{
         props.routes.map((item, index)=>{
             if (item.redirect){
@@ -35,9 +21,7 @@ let RouterView: React.FC<StateType & DispatchType & PropType> = props=>{
                     return <Redirect to={`/login?redirect=${encodeURIComponent(path)}`}/>
                 }
 
-                if(getToken() && !Object.keys(props.info).length){//
-                    props.getUserInfo();
-                }
+                
 
                 if (item.children){
                     return <item.component routes={item.children} {...renderProps}/>
@@ -48,15 +32,6 @@ let RouterView: React.FC<StateType & DispatchType & PropType> = props=>{
         })
     }</Switch>
 }
-const mapStateToPros = (state:any)=>{
-    return {
-        info:state.login.info
-    }
-}
-const mapDispatchToPros = (dispatch:Function)=>{
-    return {
-        getUserInfo:()=>dispatch(userInfoAction())
-    }
-}
-  
-  export default connect(mapStateToPros, mapDispatchToPros)(RouterView)
+
+
+export default RouterView

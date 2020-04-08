@@ -109,6 +109,29 @@
                 }
             }
         }
+        .goodsList {
+            width: auto;
+            height: auto;
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 4.6rem;
+            .goodsItem {
+                width: 50%;
+                background: #fff;
+                height: auto;
+                padding: .2rem;
+                position: relative;
+                .goodsItemImg {
+                    width: 100%;
+                    min-height: 2rem;
+                    height: auto;
+                    img {
+                        width: 100%;
+                        height: auto;
+                    }
+                }
+            }
+        }
     }
     
 }

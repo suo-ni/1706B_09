@@ -1,9 +1,41 @@
 import React from 'react'
 import { PropType, RouterItemType } from '../../utils/interface'
 import { RouteComponentProps } from 'react-router'
+import { uploadAvatarAction, updateAvatarAction } from '../../store/actions/login'
+import { Toast } from 'antd-mobile'
+import { connect } from 'react-redux'
 
-let TopicDetailPage: React.FC<RouteComponentProps & PropType> = props=>{
+interface StateType {
+    info: {
+        avatar: string,
+        username: string
+    },
+    uploadAvatar: string,
+}
+interface DispatchType {
+    changeAvatar: (form: FormData) => void
+    updateAvatar: (avatar: string) => void
+    logout: () => void
+}
 
+let TopicDetailPage: React.FC<RouteComponentProps & DispatchType & StateType & PropType> = props => {
+    let fileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        let file = e.target.files ? e.target.files[0] : null
+        if (file) {
+            let form = new FormData();
+            form.append(file.name, file);
+            props.changeAvatar(form)
+        }
+    }
+    let updateAvatar = () => {
+        console.log(props.uploadAvatar, '897987879797979')
+        if (props.uploadAvatar) {
+            console.log('111111')
+            props.updateAvatar(props.uploadAvatar)
+        } else {
+            Toast.info('请先上传你的头像')
+        }
+    }
     let address = () => {
         props.history.push('/address')
     }
@@ -14,20 +46,24 @@ let TopicDetailPage: React.FC<RouteComponentProps & PropType> = props=>{
     return <div className="tabPageContent">
         <div id="minePage">
             <div className="userMsgWrap">
-                <div className="userLogo">
-
+                
+                <div className='userLogo'>
+                    <img src={props.uploadAvatar ? props.uploadAvatar : props.info.avatar} alt="" />
                 </div>
+                <input type="file" onChange={fileChange} />
+                {/* <span>{props.info.username}</span> */}
+                <button onClick={() => { updateAvatar() }}>确定</button>
                 <div className="userMsgs">
                     <div>13333567991</div>
                     <div>普通用户</div>
                 </div>
             </div>
-            <div onClick={onFavor} className="userPower">
+            <div onClick={() => onFavor()} className="userPower">
                 <div className="div">
                     <i id="icon" className="iconfont icon-wodeshoucang"></i>
                     <div>我的收藏</div>
                 </div>
-                <div onClick={address} className="div">
+                <div onClick={() => address()} className="div">
                     <i id="icon" className="iconfont icon-dizhiguanli"></i>
                     <div>地址管理</div>
                 </div>
@@ -76,4 +112,19 @@ let TopicDetailPage: React.FC<RouteComponentProps & PropType> = props=>{
     </div>
 }
 
-export default TopicDetailPage;
+const mapStateToProps = (state: any) => {
+    console.log('state...', state)
+    return state.login
+}
+const mapDispatchToPros = (dispatch: Function) => {
+    return {
+        updateAvatar: (avatar: string) => {
+            dispatch(updateAvatarAction(avatar))
+        },
+        changeAvatar: (form: FormData) => {
+            dispatch(uploadAvatarAction(form))
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToPros)(TopicDetailPage);

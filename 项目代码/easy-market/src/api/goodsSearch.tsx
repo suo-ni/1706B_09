@@ -1,5 +1,5 @@
 import axios from '../utils/request'
 
-export let getGoodsSearch = () => {
-    return axios.get('/search/helper')
+export let getGoodsSearch = (keyword: string) => {
+    return axios.get('/goods/list?keyword=' + keyword)
 }

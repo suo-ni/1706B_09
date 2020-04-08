@@ -1,56 +1,8 @@
-// import React from 'react'
-
-// let NewAddressPage: React.FC = props=>{
-//     return <div className="noTabPageContent">
-//         <div className="addressPage">
-//             <div className="header">
-//                 <div className="left"></div>
-//                 <div className="title"></div>
-//                 <div className="right"></div>
-//             </div>
-//             <div className="addressSetPage">
-//                 <div className="addressHeader">新增地址</div>
-//                 <div className="onePx_bottom">
-//                     <input type="text" placeholder="姓名" />
-//                 </div>
-//                 <div className="onePx_bottom">
-//                     <input type="text" placeholder="电话号码" />
-//                 </div>
-//                 <div className="onePx_bottom">
-//                     <input type="text" placeholder="" />
-//                 </div>
-//                 <div className="onePx_bottom">
-//                     <input type="text" placeholder="详细地址" />
-//                 </div>
-//                 <div className="onePx_bottom">
-//                     <div className="isDefaultAddress">
-//                         设置默认地址
-//                     </div>
-//                 </div>
-//                 <div className="closeAddress">
-//                     <div>
-//                         <a href="#">
-//                             <span>取消</span>
-//                         </a>
-//                     </div>
-//                     <div>
-//                         <a href="#">
-//                             <span>保存</span>
-//                         </a>
-//                     </div>
-//                 </div>
-//             </div>
-//         </div>
-//     </div>
-// }
-
-// export default NewAddressPage;
-
-
-
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import styles from './AddressAdd.module.scss'
+import styles from './AddressAdd.module.scss';
+import { addAddress } from '../api/address';
+import { RouteComponentProps, NavLink } from 'react-router-dom'
 
 // interface dispatchType {
 //   getAddressList: Function
@@ -62,18 +14,29 @@ import styles from './AddressAdd.module.scss'
 //   }>
 // }
 
-let AddressAdd: React.FC = (props) => {
+let AddressAdd: React.FC<RouteComponentProps<{ push: string }>> = (props) => {
 
+  let item: any = props.location.state;
   useEffect(() => {
+    // console.log(props.location.state)
+    if (props.location.state) {
+      setName(item.name)
+      setAddress(item.address)
+      setCity_id(item.city_id)
+      setMobile(item.mobile)
+      setFlag(item.is_default)
+      setProvince_id(item.province_id)
+      setDistrict_id(item.district_id)
+    }
   }, [])
 
   let [flag, setFlag] = useState(false)
   let [name, setName] = useState("")
   let [mobile, setMobile] = useState("")
   let [address, setAddress] = useState("")
-  let [province_id, setProvince_id] = useState("2")
-  let [city_id, setCity_id] = useState("37")
-  let [district_id, setDistrict_id] = useState("403")
+  let [province_id, setProvince_id] = useState(2)
+  let [city_id, setCity_id] = useState(37)
+  let [district_id, setDistrict_id] = useState(403)
 
   let changeName = (e: any) => {
     setName(e.target.value)
@@ -83,6 +46,30 @@ let AddressAdd: React.FC = (props) => {
   }
   let changeAddress = (e: any) => {
     setAddress(e.target.value)
+  }
+
+  let toAddress = () => {
+    console.log(1)
+    props.history.push("/address")
+  }
+
+  let changeAdd = async () => {
+    // console.log({
+    //   name, mobile, province_id, city_id, district_id, address, is_default: flag
+    // })
+    let res = null;
+    if (item) {
+      res = await addAddress({
+        id: item.id, name, mobile, province_id, city_id, district_id, address, is_default: flag
+      })
+    } else {
+      res = await addAddress({
+        name, mobile, province_id, city_id, district_id, address, is_default: flag
+      })
+    }
+    if (res.data) {
+      props.history.replace("/address")
+    }
   }
 
   //   name: "一顿饭"
@@ -97,7 +84,7 @@ let AddressAdd: React.FC = (props) => {
     <div className={styles.AddressAdd}>
       <div className={styles.header}>
         <div className={styles.left}></div>
-        <div className={styles.title}>此证滴滴</div>
+        <div className={styles.title}>{item ? "修改地址" : "新增地址"}</div>
         <div className={styles.right}></div>
       </div>
       <div className={styles.inputBox}>
@@ -122,8 +109,8 @@ let AddressAdd: React.FC = (props) => {
       </div>
 
       <div className={styles.closeAddress}>
-        <a href="/address">取消</a>
-        <a href="">保存</a>
+        <NavLink to="#" onClick={toAddress}>取消</NavLink>
+        <NavLink to="#" onClick={changeAdd}>保存</NavLink>
       </div>
 
     </div>

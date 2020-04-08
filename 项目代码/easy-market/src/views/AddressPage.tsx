@@ -5,6 +5,7 @@ import { AddressAction } from '../store/actions/address';
 import { removeAddress } from '../api/address';
 import { RouteComponentProps } from 'react-router-dom'
 
+
 interface dispatchType {
     getAddressList: Function
 }
@@ -34,10 +35,15 @@ let Address: React.FC<dispatchType & stateType & RouteComponentProps<{ push: "" 
         console.log(props.history.push)
         // props.history.push("/addressAdd")
         props.history.push({
-            pathname: "/addressAdd",
+            pathname: "/addaddress",
             state: item
         })
 
+    }
+
+    let remove = async(id: any) => {
+        let res = await removeAddress(id)
+        props.getAddressList()
     }
 
     return (
@@ -61,7 +67,7 @@ let Address: React.FC<dispatchType & stateType & RouteComponentProps<{ push: "" 
                                         <div className="concatAddress">{item.city_name}</div>
                                         <div className="concatAddress">{item.full_region}</div>
                                     </div>
-                                    <div className="deleteAddress">
+                                    <div onClick={() => remove(item.id)} className="deleteAddress">
                                         <i className="iconfont icon-shanchu"></i>
                                     </div>
                                 </div>
@@ -72,7 +78,7 @@ let Address: React.FC<dispatchType & stateType & RouteComponentProps<{ push: "" 
                 </div>
             </div>
 
-            <div onClick={() => { props.history.replace("/addressAdd") }} className={styles.addAddress} >新建地址</div>
+            <div onClick={() => { props.history.replace("/addaddress") }} className={styles.addAddress} >新建地址</div>
         </div>
     )
 }

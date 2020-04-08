@@ -1,13 +1,13 @@
 import { ActionType } from '../../utils/interface'
 
 const initval = {
-    list: []
+    keyword: []
 }
 
 function goodsSearchreducer(state: any, action: ActionType) {
     switch(action.type) {
         case 'GET_GOODS_SEARCH':
-            return {...state, list: action.payload}
+            return {...state, keyword: action.payload.data}
         default: return state
     }
 }

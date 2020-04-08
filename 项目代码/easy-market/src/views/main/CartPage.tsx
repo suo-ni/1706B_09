@@ -1,7 +1,26 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { PropType, RouterItemType } from '../../utils/interface'
+import { connect } from 'react-redux'
+import { CartAction } from '../../store/actions/cart'
+import { RouteComponentProps } from 'react-router'
 
-let CartPage: React.FC<PropType> = props=>{
+interface StateType {
+    list: Array<{
+        [key: string]: string,
+        cartList: any
+    }>
+   
+}
+
+interface DispatchType {
+    getCart: () => void
+}
+
+let CartPage: React.FC<StateType & DispatchType & RouteComponentProps & PropType> = props => {
+    console.log(props.list)
+    useEffect(() => {
+        props.getCart()
+    }, [])
     return <div className="tabPageContent">
         <div id="cart">
             <ul className="serviceList">
@@ -16,13 +35,25 @@ let CartPage: React.FC<PropType> = props=>{
                 </li>
             </ul>
             <div className="cartGoodsListWrap">
-                <div className="cartGoodsItem">
-                    <div className="isCheckItem"></div>
-                    <div className="goodsImg"></div>
-                    <div className="cartGoodsMsg"></div>
-                    <div></div>
-                </div>
-                
+                {
+                    props.list && props.list.map((item, index) => {
+                        return <div className="cartGoodsItem">
+                        <div className="isCheckItem"></div>
+                            <div className="isCheckItem"></div>
+                            <div className="goodsImg">
+                                <img src={item.list_pic_url} alt=""/>
+                            </div>
+                            <div className="cartGoodsMsg">
+                                <div>{item.goods_name}</div>
+                                <div className="cartNo"></div>
+                                <div className="cartPrice">￥{item.market_price}</div>
+                            </div>
+                            <div className="cartGoodsNum">X{item.number}</div>
+                        </div>
+                    })
+                }
+
+
             </div>
             <div className="cartGoodsDo">
                 <div className="isCheckItem">
@@ -36,4 +67,18 @@ let CartPage: React.FC<PropType> = props=>{
     </div>
 }
 
-export default CartPage;
+const mapStateToProps = (state: any) => {
+    return {
+        list: state.cart.data.cartList
+    }
+}
+
+const mapDispatchToProps = (dispatch: Function) => {
+    return {
+        getCart: () => {
+            dispatch(CartAction())
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CartPage);
