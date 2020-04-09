@@ -1,0 +1,26 @@
+.lis{
+  list-style: none;
+  .pic{
+    @include wh(100%, 4rem);
+  }
+  .title{
+    @include wh(4rem, .4rem);
+    font-size: .3rem;
+    margin: 0 auto;
+  }
+  .subtitle{
+    font-size: .26rem;
+    color: #808080;
+    margin-top: .15rem;
+    text-align: center;
+  }
+  .info{
+    font-size: .28rem;
+    color: #f00;
+   margin-left: 3rem;
+  }
+  .price{
+    font-size: .28rem;
+    color: #f00;
+  }
+}
