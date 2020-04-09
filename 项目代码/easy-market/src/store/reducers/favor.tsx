@@ -13,8 +13,9 @@ function collectReducer(state: any = initVal, action: ActionType) {
       let findInd = state.data.findIndex((item: any) => item.value_id == action.payload);
       state.data.splice(findInd, 1);
       return { ...state, data: [...state.data] }
-
-    default:
+      case 'COLLECT_GOODS':
+        return { ...state, collectgoods: action.payload }
+      default:
       return state
   }
 }

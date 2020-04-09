@@ -1,4 +1,4 @@
-import { getCart } from '../../api/cart';
+import { getCart, CartAdd } from '../../api/cart';
 
 export let CartAction = () => {
     return async(dispatch: Function) => {
@@ -12,3 +12,16 @@ export let CartAction = () => {
         }
     }
 }
+
+//添加
+export let cartaddgoods = (goodsId: string, number: string,productId:string) => {
+    return async (dispatch: Function) => {
+      let data: any = await CartAdd(goodsId, number,productId);
+      if (data) {
+        dispatch({
+          type: "CART_ADD",
+          payload: data.data.type
+        });
+      }
+    };
+  };

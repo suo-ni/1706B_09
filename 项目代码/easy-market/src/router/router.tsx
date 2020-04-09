@@ -74,11 +74,11 @@ let config = {
             path: '/main/my',
             component: MyPage
         }]
-    }
-        // {
-        //     path: '*',
-        //     redirect: '/main/index'
-        // }
+    },
+        {
+            path: '*',
+            redirect: '/main/index'
+        }
     ]
 }
 

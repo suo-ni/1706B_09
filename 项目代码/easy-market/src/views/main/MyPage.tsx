@@ -47,16 +47,17 @@ let TopicDetailPage: React.FC<RouteComponentProps & DispatchType & StateType & P
         <div id="minePage">
             <div className="userMsgWrap">
                 
+                
+                <div className="userMsgs">
+                    <div>13333567991</div>
+                    <div>普通用户</div>
+                </div>
                 <div className='userLogo'>
                     <img src={props.uploadAvatar ? props.uploadAvatar : props.info.avatar} alt="" />
                 </div>
                 <input type="file" onChange={fileChange} />
                 {/* <span>{props.info.username}</span> */}
                 <button onClick={() => { updateAvatar() }}>确定</button>
-                <div className="userMsgs">
-                    <div>13333567991</div>
-                    <div>普通用户</div>
-                </div>
             </div>
             <div onClick={() => onFavor()} className="userPower">
                 <div className="div">

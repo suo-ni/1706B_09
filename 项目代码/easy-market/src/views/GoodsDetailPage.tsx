@@ -3,7 +3,10 @@ import { RouteComponentProps } from 'react-router'
 import styles from './GoodsDetail.module.scss'
 import { GoodsDetailAction } from '../store/actions/goodsDetail'
 import { connect } from 'react-redux'
+import { cartaddgoods } from "../store/actions/cart"
+import { collectgoods } from '../store/actions/favor'
 import Swiper from 'swiper'
+
 
 interface StateType {
     banner: Array<{
@@ -16,10 +19,16 @@ interface StateType {
         gallery: any,
         productList: any,
         issue: any
-    }
+    },
+    product: Array<{
+        id: number,
+        goods_id: number
+    }>
 }
 interface DispatchType {
     toGoodsDetail: (id: string) => void
+    collectgoods: (typeId: string, valueId: string) => void
+    cartaddgoods: (goodsId: string, number: string, productId: string) => void
 }
 
 let TopicDetailPage: React.FC<DispatchType & StateType & RouteComponentProps<{ id: string }>> = props => {
@@ -29,11 +38,23 @@ let TopicDetailPage: React.FC<DispatchType & StateType & RouteComponentProps<{ i
             loop: true
         })
     }, [])
+
     console.log(props.list)
     let id = props.match.params.id
+    console.log(id)
     useEffect(() => {
         props.toGoodsDetail(id)
     }, [])
+    let collect = () => {
+        // let id = props.location.search.slice(4)
+        console.log(id)
+        props.collectgoods("0", id)
+    }
+
+    let addcart = () => {
+        let productId = String(props.product[0]);
+        props.cartaddgoods(id, "1", productId)
+    }
     return <div className={styles.noTabPageContent}>
         <div className={styles.goodsPage}>
             <div className={styles.header}>
@@ -206,8 +227,8 @@ let TopicDetailPage: React.FC<DispatchType & StateType & RouteComponentProps<{ i
                 </div>
             </div>
             <div className={styles.goodsPageDo}>
-                <div className={styles.isLike}>☆</div>
-                <div className={styles.cartNum}>
+                <div className={styles.isLike} onClick={collect}>☆</div>
+                <div onClick={addcart} className={styles.cartNum}>
                     <i className="iconfont icon-icon-test"></i>
                 </div>
                 <div className={styles.addCart}>加入购物车</div>
@@ -220,7 +241,8 @@ let TopicDetailPage: React.FC<DispatchType & StateType & RouteComponentProps<{ i
 const mapStateToProps = (state: any) => {
     console.log(state.goodsDetail.detail)
     return {
-        list: state.goodsDetail.detail
+        list: state.goodsDetail.detail,
+        product: state.goodsDetail.detail.product
     }
 }
 
@@ -228,6 +250,12 @@ const mapDispatchToProps = (dispatch: Function) => {
     return {
         toGoodsDetail: (id: string) => {
             dispatch(GoodsDetailAction(id))
+        },
+        collectgoods: (typeId: string, valueId: string) => {
+            dispatch(collectgoods(typeId, valueId))
+        },
+        cartaddgoods: (goodsId: string, number: string, productId: string) => {
+            dispatch(cartaddgoods(goodsId, number, productId))
         }
     }
 }

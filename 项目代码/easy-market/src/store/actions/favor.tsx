@@ -1,4 +1,4 @@
-import { getCollectList, addorremove } from '../../api/favor'
+import { getCollectList, addorremove, CollectGoods } from '../../api/favor'
 
 export let collectAction = () => {
   return async (dispatch: Function) => {
@@ -13,9 +13,23 @@ export let collectAction = () => {
   }
 }
 
+//添加
+export let collectgoods = (typeId: string, valueId: string) => {
+  return async (dispatch: Function) => {
+    let data = await CollectGoods(typeId, valueId);
+    console.log(data);
+    if (data) {
+      dispatch({
+        type: "COLLECT_GOODS",
+        // payload: data.data.type
+      });
+    }
+  };
+};
+
 export let addorremoveAction = (valueId: string, typeId: string = "0") => {
   return async (dispatch: Function) => {
-    // let res = await addorremove(valueId, typeId);
+    let res = await addorremove(valueId, typeId);
     // res.data.type
     if ('delete' === "delete") {
       dispatch({
