@@ -1,0 +1,93 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "2145950",
+      "name": "地址管理",
+      "font_class": "dizhiguanli",
+      "unicode": "e610",
+      "unicode_decimal": 58896
+    },
+    {
+      "icon_id": "2366089",
+      "name": "客服咨询",
+      "font_class": "kefuzixun",
+      "unicode": "e59d",
+      "unicode_decimal": 58781
+    },
+    {
+      "icon_id": "3435124",
+      "name": "优选",
+      "font_class": "youxuan",
+      "unicode": "e628",
+      "unicode_decimal": 58920
+    },
+    {
+      "icon_id": "3982145",
+      "name": "邀请返利",
+      "font_class": "yaoqingfanli",
+      "unicode": "e77c",
+      "unicode_decimal": 59260
+    },
+    {
+      "icon_id": "5850156",
+      "name": "会员",
+      "font_class": "huiyuan",
+      "unicode": "e609",
+      "unicode_decimal": 58889
+    },
+    {
+      "icon_id": "6568287",
+      "name": "我的红包",
+      "font_class": "wodehongbao",
+      "unicode": "e578",
+      "unicode_decimal": 58744
+    },
+    {
+      "icon_id": "8099754",
+      "name": "日历",
+      "font_class": "rili",
+      "unicode": "e644",
+      "unicode_decimal": 58948
+    },
+    {
+      "icon_id": "9010711",
+      "name": "我的收藏",
+      "font_class": "wodeshoucang",
+      "unicode": "e6d0",
+      "unicode_decimal": 59088
+    },
+    {
+      "icon_id": "10399380",
+      "name": "优惠券",
+      "font_class": "youhuiquan",
+      "unicode": "e699",
+      "unicode_decimal": 59033
+    },
+    {
+      "icon_id": "12304641",
+      "name": "我的订单",
+      "font_class": "wodedingdan",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    },
+    {
+      "icon_id": "13205362",
+      "name": "意见反馈",
+      "font_class": "yijianfankui",
+      "unicode": "e618",
+      "unicode_decimal": 58904
+    },
+    {
+      "icon_id": "13561084",
+      "name": "账户安全",
+      "font_class": "zhanghuanquan",
+      "unicode": "e615",
+      "unicode_decimal": 58901
+    }
+  ]
+}
